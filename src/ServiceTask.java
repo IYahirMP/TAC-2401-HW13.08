@@ -4,6 +4,9 @@
  * service requests.
  * This class provides methods to manage task data such as the taskId, description,
  * status, priority and cost.
+ *
+ * @version 1.0 12 Aug 2024
+ * @author Ivan Mojica
  */
 public class ServiceTask {
 

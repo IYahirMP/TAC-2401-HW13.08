@@ -2,6 +2,9 @@
  * The class ComputerPart represents a physical part of a computer and
  * stores its partId at the computer repair service, name, manufacturer,
  * and cost. It provides methods to manage the ComputerPart's data.
+ *
+ * @version 1.0 12 Aug 2024
+ * @author Ivan Mojica
  */
 public class ComputerPart {
 
