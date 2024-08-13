@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-
 /**
  * The class Customer represents a customer of the computer repair service.
  * It holds information such as the customer's id, first and last name, address,
