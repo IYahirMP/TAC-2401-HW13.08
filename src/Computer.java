@@ -53,7 +53,8 @@ public class Computer {
      * @param year The computer's production year
      * @param isCustomAssembled Whether the computer was a custom assembly or not.
      */
-    public Computer(int computerId, String serialNumber, String brand, String model, int year, boolean isCustomAssembled) {
+    public Computer(int computerId, String serialNumber, String brand, String model,
+                    int year, boolean isCustomAssembled) {
         this.computerId = computerId;
         this.serialNumber = serialNumber;
         this.brand = brand;

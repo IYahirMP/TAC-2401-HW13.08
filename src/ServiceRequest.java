@@ -43,7 +43,8 @@ public class ServiceRequest {
      * @param status Current status for the new ServiceRequest.
      * @param description Brief description of the requested services in the new ServiceRequest.
      */
-    public ServiceRequest(int requestId, LocalDate requestDate, String status, String description) {
+    public ServiceRequest(int requestId, LocalDate requestDate,
+                          String status, String description) {
         this.requestId = requestId;
         this.requestDate = requestDate;
         this.status = status;
