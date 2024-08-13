@@ -174,4 +174,14 @@ public class Computer {
     public void setCustomAssembled(boolean isCustomAssembled) {
         this.isCustomAssembled = isCustomAssembled;
     }
+
+    public void printInfo(){
+        System.out.println("Computer ID: " + this.computerId);
+        System.out.println("Serial Number: " + this.serialNumber);
+        System.out.println("Brand: " + this.brand);
+        System.out.println("Model: " + this.model);
+        System.out.println("Year: " + this.year);
+        System.out.println("Custom Assembled: " + this.isCustomAssembled);
+        System.out.println("------------------------------------");
+    }
 }
