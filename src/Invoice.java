@@ -128,4 +128,12 @@ public class Invoice {
     public void setClientName(String clientName) {
         this.clientName = clientName;
     }
+
+    public void printInfo(){
+        System.out.println("Invoice ID: " + invoiceId);
+        System.out.println("Issue Date: " + issueDate);
+        System.out.println("Total Amount: " + totalAmount);
+        System.out.println("Client Name: " + clientName);
+        System.out.println("------------------------------------");
+    }
 }

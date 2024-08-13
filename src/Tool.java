@@ -110,4 +110,12 @@ public class Tool {
     public void setUsage(String usage) {
         this.usage = usage;
     }
+
+    public void printInfo(){
+        System.out.println("Tool ID: " + toolId);
+        System.out.println("Name: " + name);
+        System.out.println("Type: " + type);
+        System.out.println("Usage: " + usage);
+        System.out.println("------------------------------------");
+    }
 }

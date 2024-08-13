@@ -152,4 +152,12 @@ public class ServiceTask {
         this.cost = cost;
     }
 
+    public void printInfo(){
+        System.out.println("Task ID: " + this.taskId);
+        System.out.println("Description: " + this.description);
+        System.out.println("Status: " + this.status);
+        System.out.println("Priority: " + this.priority);
+        System.out.println("Cost: " + this.cost);
+        System.out.println("------------------------------------");
+    }
 }

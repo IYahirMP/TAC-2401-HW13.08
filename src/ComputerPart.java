@@ -125,4 +125,12 @@ public class ComputerPart {
         this.cost = cost;
     }
 
+    public void printInfo(){
+        System.out.println("Part ID: " + this.partId);
+        System.out.println("Name: " + this.name);
+        System.out.println("Manufacturer: " + this.manufacturer);
+        System.out.println("Cost: " + this.cost);
+        System.out.println("------------------------------------");
+    }
+
 }

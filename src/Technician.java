@@ -34,6 +34,7 @@ public class Technician {
         this.firstName = "";
         this.lastName = "";
         this.experienceLevel = 0;
+        this.specialty = "";
     }
 
     /**
@@ -133,4 +134,12 @@ public class Technician {
         this.specialty = value;
     }
 
+    public void printInfo(){
+        System.out.println("Technician ID: " + this.technicianId);
+        System.out.println("First Name: " + this.firstName);
+        System.out.println("Last Name: " + this.lastName);
+        System.out.println("Experience Level: " + this.experienceLevel);
+        System.out.println("Specialty: " + this.specialty);
+        System.out.println("------------------------------------");
+    }
 }

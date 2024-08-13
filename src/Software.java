@@ -248,5 +248,19 @@ public class Software {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public void printInfo(){
+        System.out.println("Software ID: " + softwareId);
+        System.out.println("Name: " + name);
+        System.out.println("Version: " + version);
+        System.out.println("LicenseKey: " + licenseKey);
+        System.out.println("Vendor: " + vendor);
+        System.out.println("PurchaseDate: " + purchaseDate);
+        System.out.println("ExpirationDate: " + expirationDate);
+        System.out.println("Cost: " + cost);
+        System.out.println("ProductType: " + productType);
+        System.out.println("Status: " + status);
+        System.out.println("------------------------------------");
+    }
 }
 

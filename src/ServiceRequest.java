@@ -128,4 +128,12 @@ public class ServiceRequest {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void printInfo(){
+        System.out.println("Request ID: " + this.requestId);
+        System.out.println("Request Date: " + this.requestDate);
+        System.out.println("Status: " + this.status);
+        System.out.println("Description: " + this.description);
+        System.out.println("------------------------------------");
+    }
 }

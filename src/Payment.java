@@ -113,4 +113,12 @@ public class Payment {
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
+
+    public void printInfo(){
+        System.out.println("Payment Id: " + paymentId);
+        System.out.println("Amount: " + amount);
+        System.out.println("Payment Date: " + paymentDate);
+        System.out.println("Payment Method: " + paymentMethod);
+        System.out.println("------------------------------------");
+    }
 }
