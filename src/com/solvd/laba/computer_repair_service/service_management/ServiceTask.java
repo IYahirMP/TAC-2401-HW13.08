@@ -1,3 +1,5 @@
+package com.solvd.laba.computer_repair_service.service_management;
+
 /**
  * The ServiceTask class represents an individual task that is performed within
  * the scope of a service request. Many services may be performed within the same

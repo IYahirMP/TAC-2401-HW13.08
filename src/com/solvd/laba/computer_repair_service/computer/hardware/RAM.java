@@ -1,0 +1,23 @@
+package com.solvd.laba.computer_repair_service.computer.hardware;
+
+public class RAM extends Memory{
+    private int frequency;
+
+    public RAM(){
+        super();
+        this.frequency = 0;
+    }
+
+    public RAM(int capacity, int readSpeed, int writeSpeed, int frequency){
+        super(capacity, readSpeed, writeSpeed, ComputerInterface.createPCIE());
+        this.frequency = frequency;
+    }
+
+    public int getFrequency(){
+        return frequency;
+    }
+
+    public void setFrequency(int frequency){
+        this.frequency = frequency;
+    }
+}

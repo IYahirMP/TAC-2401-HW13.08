@@ -1,3 +1,5 @@
+package com.solvd.laba.computer_repair_service.computer;
+
 /**
  * The class ComputerPart represents a physical part of a computer and
  * stores its partId at the computer repair service, name, manufacturer,

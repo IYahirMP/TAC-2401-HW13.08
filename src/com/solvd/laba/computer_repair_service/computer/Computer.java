@@ -1,3 +1,9 @@
+package com.solvd.laba.computer_repair_service.computer;
+
+import com.solvd.laba.computer_repair_service.computer.hardware.*;
+
+import java.util.ArrayList;
+
 /**
  * The class Computer represents a physical computer that is subject
  * to computer repair services. This class holds information regarding
@@ -27,6 +33,12 @@ public class Computer {
 
     /** Indicates if the computer is a custom build. */
     private boolean isCustomAssembled;
+
+    private Motherboard motherboard;
+    private Processor processor;
+    private DiscreteGPU discreteGPU;
+    private IntegratedGPU internalGPU;
+    private ArrayList<RAM> ram;
 
     /**
      * The default constructor for Computer.
@@ -173,6 +185,46 @@ public class Computer {
      */
     public void setCustomAssembled(boolean isCustomAssembled) {
         this.isCustomAssembled = isCustomAssembled;
+    }
+
+    public Motherboard getMotherboard() {
+        return motherboard;
+    }
+
+    public void setMotherboard(Motherboard motherboard) {
+        this.motherboard = motherboard;
+    }
+
+    public Processor getProcessor() {
+        return processor;
+    }
+
+    public void setProcessor(Processor processor) {
+        this.processor = processor;
+    }
+
+    public DiscreteGPU getDiscreteGPU() {
+        return discreteGPU;
+    }
+
+    public void setDiscreteGPU(DiscreteGPU discreteGPU) {
+        this.discreteGPU = discreteGPU;
+    }
+
+    public IntegratedGPU getInternalGPU() {
+        return internalGPU;
+    }
+
+    public void setInternalGPU(IntegratedGPU internalGPU) {
+        this.internalGPU = internalGPU;
+    }
+
+    public ArrayList<RAM> getRam() {
+        return ram;
+    }
+
+    public void setRam(ArrayList<RAM> ram) {
+        this.ram = ram;
     }
 
     public void printInfo(){
