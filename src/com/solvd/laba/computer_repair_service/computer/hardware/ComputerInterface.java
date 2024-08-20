@@ -85,4 +85,13 @@ public class ComputerInterface {
     public static ComputerInterface createIDE(){
         return new ComputerInterface(InterfaceName.IDE, InterfaceType.FEMALE);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Interface Name: ").append(name).append("\n");
+        builder.append("Interface Type: ").append(type).append("\n");
+        builder.append("Is Broken: ").append(isBroken).append("\n");
+        return builder.toString();
+    }
 }

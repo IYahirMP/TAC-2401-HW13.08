@@ -20,4 +20,12 @@ public class RAM extends Memory{
     public void setFrequency(int frequency){
         this.frequency = frequency;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(super.toString()); // Include information from Memory's toString
+        builder.append("  Frequency: ").append(frequency).append(" MHz\n");
+        return builder.toString();
+    }
 }

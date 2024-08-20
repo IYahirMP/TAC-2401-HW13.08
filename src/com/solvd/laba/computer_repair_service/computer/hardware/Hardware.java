@@ -1,6 +1,6 @@
 package com.solvd.laba.computer_repair_service.computer.hardware;
 
-public class Hardware {
+public abstract class Hardware {
     protected String brand;
     protected String model;
     protected boolean isWorkingProperly;

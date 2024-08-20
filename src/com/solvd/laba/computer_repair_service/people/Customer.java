@@ -31,7 +31,7 @@ public class Customer extends Person{
      * @param email The email address of the customer.
      * @param phoneNumber The phone number of the customer.
      */
-    Customer(int customerId, String firstName, String lastName,
+    public Customer(int customerId, String firstName, String lastName,
              String address, String email, String phoneNumber) {
         super(firstName, lastName, address, email, phoneNumber);
         this.customerId = customerId;
@@ -44,7 +44,7 @@ public class Customer extends Person{
      * @param firstName The first name of the customer.
      * @param lastName The last name of the customer.
      */
-    Customer(int customerId, String firstName, String lastName) {
+    public Customer(int customerId, String firstName, String lastName) {
         super(firstName, lastName);
         this.customerId = customerId;
     }
@@ -68,7 +68,7 @@ public class Customer extends Person{
     @Override
     public String toString() {
         String result = super.toString();
-        result += "Customer ID: " + customerId;
+        result += "Customer ID: " + customerId + "\n";
         return result;
     }
 }

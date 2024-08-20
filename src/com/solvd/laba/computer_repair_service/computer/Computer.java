@@ -65,14 +65,18 @@ public class Computer {
      * @param year The computer's production year
      * @param isCustomAssembled Whether the computer was a custom assembly or not.
      */
-    public Computer(int computerId, String serialNumber, String brand, String model,
-                    int year, boolean isCustomAssembled) {
+    public Computer(int computerId, String serialNumber, String brand, String model, int year, boolean isCustomAssembled, Motherboard motherboard, Processor processor, DiscreteGPU discreteGPU, IntegratedGPU internalGPU, ArrayList<RAM> ram) {
         this.computerId = computerId;
-        this.serialNumber = serialNumber;
-        this.brand = brand;
-        this.model = model;
+        this.serialNumber = serialNumber != null ? serialNumber : "";  // Set default if null
+        this.brand = brand != null ? brand : "";                     // Set default if null
+        this.model = model != null ? model : "";                     // Set default if null
         this.year = year;
         this.isCustomAssembled = isCustomAssembled;
+        this.motherboard = motherboard;
+        this.processor = processor;
+        this.discreteGPU = discreteGPU;
+        this.internalGPU = internalGPU;
+        this.ram = ram;
     }
 
     /**
@@ -227,13 +231,29 @@ public class Computer {
         this.ram = ram;
     }
 
-    public void printInfo(){
-        System.out.println("Computer ID: " + this.computerId);
-        System.out.println("Serial Number: " + this.serialNumber);
-        System.out.println("Brand: " + this.brand);
-        System.out.println("Model: " + this.model);
-        System.out.println("Year: " + this.year);
-        System.out.println("Custom Assembled: " + this.isCustomAssembled);
-        System.out.println("------------------------------------");
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Computer ID: ").append(computerId).append("\n");
+        builder.append("Serial Number: ").append(serialNumber).append("\n");
+        builder.append("Brand: ").append(brand).append("\n");
+        builder.append("Model: ").append(model).append("\n");
+        builder.append("Year: ").append(year).append("\n");
+        builder.append("Custom Assembled: ").append(isCustomAssembled).append("\n");
+        builder.append(motherboard == null ? "N/A" : motherboard.toString()).append("\n");
+        builder.append(processor == null ? "N/A" : processor.toString()).append("\n");
+        builder.append(discreteGPU == null ? "N/A" : discreteGPU.toString()).append("\n");
+        builder.append(internalGPU == null ? "Internal GPU: N/A" : internalGPU.toString()).append("\n");
+        if (ram != null && !ram.isEmpty()) {
+            int i = 1;
+            for (RAM ramModule : ram) {
+                String ramNo = "[RAM " + i + "] " + ramModule.toString();
+                builder.append(ramNo).append("\n");
+                i++;
+            }
+        } else {
+            builder.append("N/A");
+        }
+        return builder.toString();
     }
 }

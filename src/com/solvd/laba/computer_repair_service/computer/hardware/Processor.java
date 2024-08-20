@@ -61,4 +61,16 @@ public class Processor extends Hardware{
     public void setArchitecture(ProcessorArchitecture architecture) {
         this.architecture = architecture;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Processor:\n");
+        builder.append("  Cores: ").append(cores).append("\n");
+        builder.append("  Threads: ").append(threads).append("\n");
+        builder.append("  Base Clock: ").append(baseClock).append(" GHz\n");
+        builder.append("  Cache: ").append(cache).append(" MB\n");
+        builder.append("  Architecture: ").append(architecture).append("\n");
+        return builder.toString();
+    }
 }

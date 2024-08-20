@@ -53,4 +53,15 @@ public class Memory extends Hardware{
     public void setComputerInterface(ComputerInterface computerInterface) {
         this.computerInterface = computerInterface;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Memory:\n");
+        builder.append("  Capacity: ").append(capacity).append(" GB\n");
+        builder.append("  Read Speed: ").append(readSpeed).append(" MHz\n");
+        builder.append("  Write Speed: ").append(writeSpeed).append(" MHz\n");
+        builder.append("  Interface: ").append(computerInterface).append("\n");
+        return builder.toString();
+    }
 }

@@ -1,5 +1,7 @@
 package com.solvd.laba.computer_repair_service.service_management;
 
+import com.solvd.laba.computer_repair_service.people.Technician;
+
 /**
  * The ServiceTask class represents an individual task that is performed within
  * the scope of a service request. Many services may be performed within the same
@@ -12,9 +14,6 @@ package com.solvd.laba.computer_repair_service.service_management;
  */
 public class ServiceTask {
 
-    /** Holds the available values for status*/
-    public enum Status {ONGOING, ON_HOLD, PENDING}
-
     /** Holds the id for the task.*/
     private int taskId;
 
@@ -22,13 +21,15 @@ public class ServiceTask {
     private String description;
 
     /** Holds the status of the task, whether it has been completed, is pending or in hold*/
-    private Status status;
+    private ServiceStatus status;
 
     /** Holds the priority of the task. Higher values mean higher priority*/
     private int priority;
 
     /** Holds the cost of the task.*/
     private double cost;
+
+    private Technician technician;
 
     /**
      * Default constructor for ServiceTask.
@@ -38,7 +39,7 @@ public class ServiceTask {
     public ServiceTask() {
         this.taskId = -1;
         this.description = "";
-        this.status = Status.PENDING;
+        this.status = ServiceStatus.PENDING;
         this.priority = 0;
         this.cost = 0;
     }
@@ -51,7 +52,7 @@ public class ServiceTask {
      * @param priority The priority of the task.
      * @param cost The cost of the task.
      */
-    public ServiceTask(int taskId, String description, Status status, int priority, double cost) {
+    public ServiceTask(int taskId, String description, ServiceStatus status, int priority, double cost) {
         this.taskId = taskId;
         this.description = description;
         this.status = status;
@@ -69,7 +70,7 @@ public class ServiceTask {
     public ServiceTask(int taskId, String description, double cost) {
         this.taskId = taskId;
         this.description = description;
-        this.status = Status.PENDING;
+        this.status = ServiceStatus.PENDING;
         this.priority = 0;
         this.cost = cost;
     }
@@ -118,7 +119,7 @@ public class ServiceTask {
      * Sets the status of the task to a new one.
      * @param status The new status of the task.
      */
-    public void setStatus(Status status) {
+    public void setStatus(ServiceStatus status) {
         this.status = status;
     }
 

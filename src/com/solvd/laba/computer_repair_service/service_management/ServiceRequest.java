@@ -1,6 +1,7 @@
 package com.solvd.laba.computer_repair_service.service_management;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * The class ServiceRequest represents a service request of the computer
@@ -20,10 +21,13 @@ public class ServiceRequest {
     private LocalDate requestDate;
 
     /** Holds the status of the request */
-    private String status;
+    private ServiceStatus status;
 
     /** Holds a brief description of the request */
     private String description;
+
+    /** List of tasks to do */
+    ArrayList<ServiceTask> tasks;
 
     /**
      * Default constructor for ServiceRequest.
@@ -33,8 +37,9 @@ public class ServiceRequest {
     public ServiceRequest() {
         this.requestId = 0;
         this.requestDate = LocalDate.now();
-        this.status = "";
+        this.status = ServiceStatus.ON_HOLD;
         this.description = "";
+        this.tasks = new ArrayList<>();
     }
 
     /**
@@ -46,11 +51,30 @@ public class ServiceRequest {
      * @param description Brief description of the requested services in the new ServiceRequest.
      */
     public ServiceRequest(int requestId, LocalDate requestDate,
-                          String status, String description) {
+                          ServiceStatus status, String description) {
         this.requestId = requestId;
         this.requestDate = requestDate;
         this.status = status;
         this.description = description;
+        this.tasks = new ArrayList<>();
+    }
+
+    /**
+     * Constructs a ServiceRequest setting custom values for requestId,
+     * requestDate, status and description.
+     * @param requestId Request id for the new ServiceRequest.
+     * @param requestDate Request date for the new ServiceRequest.
+     * @param status Current status for the new ServiceRequest.
+     * @param description Brief description of the requested services in the new ServiceRequest.
+     * @param tasks The ServiceTasks to do.
+     */
+    public ServiceRequest(int requestId, LocalDate requestDate,
+                          ServiceStatus status, String description, ArrayList<ServiceTask> tasks) {
+        this.requestId = requestId;
+        this.requestDate = requestDate;
+        this.status = status;
+        this.description = description;
+        this.tasks = tasks;
     }
 
     /**
@@ -60,11 +84,12 @@ public class ServiceRequest {
      * @param status Current status for the new ServiceRequest.
      * @param description Brief description of the requested services in the new ServiceRequest.
      */
-    public ServiceRequest(int requestId, String status, String description) {
+    public ServiceRequest(int requestId, ServiceStatus status, String description) {
         this.requestId = requestId;
         this.requestDate = LocalDate.now();
         this.status = status;
         this.description = description;
+        this.tasks = new ArrayList<>();
     }
 
     /**
@@ -103,7 +128,7 @@ public class ServiceRequest {
      * Retrieves the current status of the service request.
      * @return The current status of the ServiceRequest.
      */
-    public String getStatus() {
+    public ServiceStatus getStatus() {
         return this.status;
     }
 
@@ -111,7 +136,7 @@ public class ServiceRequest {
      * Updates the status of the service request with the provided value.
      * @param status The new status for the ServiceRequest.
      */
-    public void setStatus(String status) {
+    public void setStatus(ServiceStatus status) {
         this.status = status;
     }
 
@@ -129,6 +154,22 @@ public class ServiceRequest {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public ArrayList<ServiceTask> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(ArrayList<ServiceTask> tasks) {
+        this.tasks = tasks;
+    }
+
+    public void addTask(ServiceTask task) {
+        this.tasks.add(task);
+    }
+
+    public void removeTask(ServiceTask task) {
+        this.tasks.remove(task);
     }
 
     public void printInfo(){

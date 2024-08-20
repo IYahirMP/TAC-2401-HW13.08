@@ -4,9 +4,12 @@ public class Motherboard {
     public enum MotherboardFormFactor { ATX, MICRO_ATX, MINI_ITX, NANO_ITX, PICO_ITX, LAPTOP }
     private MotherboardFormFactor formFactor;
 
-    // Constructors
+    /**
+     * Constructor
+     * Defaults formFactor to ATX
+     */
     public Motherboard() {
-        // Default constructor can initialize values here
+        formFactor = MotherboardFormFactor.ATX;
     }
 
     public Motherboard(MotherboardFormFactor formFactor) {
@@ -20,5 +23,13 @@ public class Motherboard {
 
     public void setFormFactor(MotherboardFormFactor formFactor) {
         this.formFactor = formFactor;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Motherboard:\n");
+        builder.append("  Form Factor: ").append(formFactor).append("\n");
+        return builder.toString();
     }
 }

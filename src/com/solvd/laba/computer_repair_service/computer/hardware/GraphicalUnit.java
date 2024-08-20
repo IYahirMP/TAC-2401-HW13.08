@@ -1,17 +1,19 @@
 package com.solvd.laba.computer_repair_service.computer.hardware;
 
+import java.util.ArrayList;
+
 public class GraphicalUnit {
     private int vram;
     private float coreClock;
     private ComputerInterface interfaceType;
-    private ComputerInterface[] outputPorts;
+    private ArrayList<ComputerInterface> outputPorts;
 
     // Constructors
     public GraphicalUnit() {
         // Default constructor can initialize values here
     }
 
-    public GraphicalUnit(int vram, float coreClock, ComputerInterface interfaceType, ComputerInterface[] outputPorts) {
+    public GraphicalUnit(int vram, float coreClock, ComputerInterface interfaceType, ArrayList<ComputerInterface> outputPorts) {
         this.vram = vram;
         this.coreClock = coreClock;
         this.interfaceType = interfaceType;
@@ -43,11 +45,28 @@ public class GraphicalUnit {
         this.interfaceType = interfaceType;
     }
 
-    public ComputerInterface[] getOutputPorts() {
+    public ArrayList<ComputerInterface> getOutputPorts() {
         return outputPorts;
     }
 
-    public void setOutputPorts(ComputerInterface[] outputPorts) {
+    public void setOutputPorts(ArrayList<ComputerInterface> outputPorts) {
         this.outputPorts = outputPorts;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("VRAM: ").append(vram).append(" MB\n");
+        builder.append("Core Clock: ").append(coreClock).append(" GHz\n");
+        builder.append("Interface Type: ").append(interfaceType).append("\n");
+        builder.append("Output Ports: \n");
+        if (outputPorts != null && !outputPorts.isEmpty()) {
+            for (ComputerInterface port : outputPorts) {
+                builder.append(port).append("\n");
+            }
+        } else {
+            builder.append("N/A");
+        }
+        return builder.toString();
     }
 }
