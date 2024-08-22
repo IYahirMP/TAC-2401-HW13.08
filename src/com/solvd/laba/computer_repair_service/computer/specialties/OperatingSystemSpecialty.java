@@ -4,7 +4,7 @@ import com.solvd.laba.computer_repair_service.computer.Computer;
 
 import java.util.ArrayList;
 
-abstract class OperatingSystemSpecialty implements Maintainer{
+public abstract class OperatingSystemSpecialty implements Maintainer{
     public void correctiveMaintenance(Computer computer) {
 
     }

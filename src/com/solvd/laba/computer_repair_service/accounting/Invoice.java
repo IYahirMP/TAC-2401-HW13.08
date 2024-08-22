@@ -1,5 +1,7 @@
 package com.solvd.laba.computer_repair_service.accounting;
 
+import com.solvd.laba.computer_repair_service.people.Customer;
+
 import java.time.LocalDate;
 
 /**
@@ -27,10 +29,7 @@ public class Invoice {
      */
     private double totalAmount;
 
-    /**
-     * Name of the client associated with the invoice.
-     */
-    private String clientName;
+    private Payment payment;
 
     /**
      * Default constructor for Invoice.
@@ -41,7 +40,21 @@ public class Invoice {
         invoiceId = -1;
         issueDate = LocalDate.now();
         totalAmount = 0.0;
-        clientName = "";
+        payment = null;
+    }
+
+    /**
+     * Constructor to create an Invoice with the specified values, with no payment.
+     *
+     * @param invoiceId   The invoice ID.
+     * @param issueDate   The issue date.
+     * @param totalAmount The total amount of the invoice.
+     */
+    public Invoice(int invoiceId, LocalDate issueDate, double totalAmount) {
+        this.invoiceId = invoiceId;
+        this.issueDate = issueDate;
+        this.totalAmount = totalAmount;
+        this.payment = null;
     }
 
     /**
@@ -50,13 +63,13 @@ public class Invoice {
      * @param invoiceId   The invoice ID.
      * @param issueDate   The issue date.
      * @param totalAmount The total amount of the invoice.
-     * @param clientName  The client's name.
+     * @param payment  The payment's reference.
      */
-    public Invoice(int invoiceId, LocalDate issueDate, double totalAmount, String clientName) {
+    public Invoice(int invoiceId, LocalDate issueDate, double totalAmount, Payment payment) {
         this.invoiceId = invoiceId;
         this.issueDate = issueDate;
         this.totalAmount = totalAmount;
-        this.clientName = clientName;
+        this.payment = payment;
     }
 
     /**
@@ -113,29 +126,21 @@ public class Invoice {
         this.totalAmount = totalAmount;
     }
 
-    /**
-     * Retrieves the client's name associated with the invoice.
-     *
-     * @return The client's name.
-     */
-    public String getClientName() {
-        return clientName;
+    public Payment getPayment() {
+        return payment;
     }
 
-    /**
-     * Sets the client's name associated with the invoice.
-     *
-     * @param clientName The new client name.
-     */
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
-    public void printInfo(){
-        System.out.println("Invoice ID: " + invoiceId);
-        System.out.println("Issue Date: " + issueDate);
-        System.out.println("Total Amount: " + totalAmount);
-        System.out.println("Client Name: " + clientName);
-        System.out.println("------------------------------------");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Invoice ID: " + invoiceId).
+            append("Issue Date: " + issueDate).
+            append("Total Amount: " + totalAmount);
+
+        return sb.toString();
     }
 }

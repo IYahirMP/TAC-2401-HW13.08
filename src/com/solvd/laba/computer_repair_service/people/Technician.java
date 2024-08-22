@@ -1,5 +1,8 @@
 package com.solvd.laba.computer_repair_service.people;
 
+import com.solvd.laba.computer_repair_service.computer.specialties.FormFactorSpecialty;
+import com.solvd.laba.computer_repair_service.computer.specialties.OperatingSystemSpecialty;
+
 /**
  * The class Technician represents a technician at the computer repair service.
  * It holds data about the technician such as his id, first name and last name,
@@ -9,10 +12,14 @@ package com.solvd.laba.computer_repair_service.people;
  * @version 1.0 12 Aug 2024
  * @author Ivan Mojica
  */
-public class Technician extends Person{
+public class Technician extends Employee{
 
     /** Holds the technician's id at the computer repair service.*/
     private int technicianId;
+
+    private OperatingSystemSpecialty operatingSystemSpecialty;
+
+    private FormFactorSpecialty formFactorSpecialty;
 
     /**
      * Default constructor for Technician.
@@ -25,13 +32,28 @@ public class Technician extends Person{
     }
 
     /**
-     * Creates a Technician with the given id, first and last names, experience
-     * level and specialty.
+     * Creates a technician with name, address, email, phone number, employee id and technician id.
      * @param technicianId The new Technician's id
      */
-    public Technician(int technicianId, String firstName, String lastName) {
-        super(firstName,lastName);
+    public Technician (String firstName, String lastName,
+                       String address, String email, String phoneNumber, int employeeId ,int technicianId) {
+        super(firstName, lastName, address, email, phoneNumber, employeeId, Position.Technician);
         this.technicianId = technicianId;
+    }
+
+    /**
+     * Creates a technician with name, address, email, phone number, employee id and technician id.
+     * @param technicianId The new Technician's id
+     */
+    public Technician (String firstName, String lastName,
+                       String address, String email, String phoneNumber,
+                       int employeeId ,int technicianId,
+                       OperatingSystemSpecialty osSpecialty,
+                       FormFactorSpecialty formFactorSpecialty) {
+        super(firstName, lastName, address, email, phoneNumber, employeeId, Position.Technician);
+        this.technicianId = technicianId;
+        this.operatingSystemSpecialty = osSpecialty;
+        this.formFactorSpecialty = formFactorSpecialty;
     }
 
     /**

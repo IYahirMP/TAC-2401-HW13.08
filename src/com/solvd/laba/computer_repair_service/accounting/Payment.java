@@ -11,6 +11,8 @@ import java.time.LocalDate;
  * @author Ivan Mojica
  */
 public class Payment {
+    /** Payment methods list */
+    public enum PaymentMethod {CREDIT_CARD, DEBIT_CARD, CASH, BANK_TRANSFER}
 
     /** Holds the id for the payment */
     private int paymentId;
@@ -22,7 +24,8 @@ public class Payment {
     private LocalDate paymentDate;
 
     /** Holds the method used for the payment (cash, credit card, etc.). */
-    private String paymentMethod;
+    private PaymentMethod paymentMethod;
+
 
     /**
      * Default constructor for Payment.
@@ -33,7 +36,7 @@ public class Payment {
         paymentId = -1;
         amount = 0.0;
         paymentDate = LocalDate.now();
-        paymentMethod = "";
+        paymentMethod = PaymentMethod.CASH;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Payment {
      * @param paymentDate The date of the payment.
      * @param paymentMethod The payment method used.
      */
-    public Payment(int paymentId, double amount, LocalDate paymentDate, String paymentMethod) {
+    public Payment(int paymentId, double amount, LocalDate paymentDate, PaymentMethod paymentMethod) {
         this.paymentId = paymentId;
         this.amount = amount;
         this.paymentDate = paymentDate;
@@ -103,7 +106,7 @@ public class Payment {
      * Retrieves the payment method used (e.g., cash, credit card, etc.).
      * @return The payment method.
      */
-    public String getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
@@ -111,15 +114,17 @@ public class Payment {
      * Sets the payment method used (e.g., cash, credit card, etc.).
      * @param paymentMethod The new payment method.
      */
-    public void setPaymentMethod(String paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
-    public void printInfo(){
-        System.out.println("Payment Id: " + paymentId);
-        System.out.println("Amount: " + amount);
-        System.out.println("Payment Date: " + paymentDate);
-        System.out.println("Payment Method: " + paymentMethod);
-        System.out.println("------------------------------------");
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Payment Id: " + paymentId).
+                append("Amount: " + amount).
+                append("Payment Date: " + paymentDate).
+                append("Payment Method: " + paymentMethod);
+        return sb.toString();
     }
 }

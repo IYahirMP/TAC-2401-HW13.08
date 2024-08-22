@@ -1,5 +1,7 @@
 package com.solvd.laba.computer_repair_service.service_management;
 
+import com.solvd.laba.computer_repair_service.accounting.Order;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -27,7 +29,9 @@ public class ServiceRequest {
     private String description;
 
     /** List of tasks to do */
-    ArrayList<ServiceTask> tasks;
+    private ArrayList<Task> tasks;
+
+    private Order order;
 
     /**
      * Default constructor for ServiceRequest.
@@ -69,7 +73,7 @@ public class ServiceRequest {
      * @param tasks The ServiceTasks to do.
      */
     public ServiceRequest(int requestId, LocalDate requestDate,
-                          ServiceStatus status, String description, ArrayList<ServiceTask> tasks) {
+                          ServiceStatus status, String description, ArrayList<Task> tasks) {
         this.requestId = requestId;
         this.requestDate = requestDate;
         this.status = status;
@@ -156,20 +160,28 @@ public class ServiceRequest {
         this.description = description;
     }
 
-    public ArrayList<ServiceTask> getTasks() {
+    public ArrayList<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(ArrayList<ServiceTask> tasks) {
+    public void setTasks(ArrayList<Task> tasks) {
         this.tasks = tasks;
     }
 
-    public void addTask(ServiceTask task) {
+    public void addTask(Task task) {
         this.tasks.add(task);
     }
 
-    public void removeTask(ServiceTask task) {
+    public void removeTask(Task task) {
         this.tasks.remove(task);
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public void printInfo(){

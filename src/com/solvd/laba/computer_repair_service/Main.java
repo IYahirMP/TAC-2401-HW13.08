@@ -34,8 +34,8 @@ public class Main {
                 "BrandX", "ModelY", 2023, true,
                 motherboard, processor, discreteGPU, null, rams);
 
-        //System.out.println(customer);
-        //System.out.println(computer);
+        System.out.println(customer);
+        System.out.println(computer);
 
         ServiceRequest request = new ServiceRequest(
                 1, LocalDate.now(), ServiceStatus.ONGOING,

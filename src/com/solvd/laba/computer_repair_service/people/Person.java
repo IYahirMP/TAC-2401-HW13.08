@@ -17,11 +17,11 @@ public class Person {
     protected String phoneNumber;
 
     /**
-     * Default constructor for Customer.
-     * Initializes customerId to 0, firstName, lastName, address, email,
+     * Default constructor for Person.
+     * Initializes personId to 0, firstName, lastName, address, email,
      * and phoneNumber to empty strings.
      */
-    Person() {
+    public Person() {
         this.firstName = "";
         this.lastName = "";
         this.address = "";
@@ -31,11 +31,11 @@ public class Person {
 
     /**
      * Constructs a Person with specified values for all attributes.
-     * @param firstName The first name of the customer.
-     * @param lastName The last name of the customer.
-     * @param address The address of the customer.
-     * @param email The email address of the customer.
-     * @param phoneNumber The phone number of the customer.
+     * @param firstName The first name of the person.
+     * @param lastName The last name of the person.
+     * @param address The address of the person.
+     * @param email The email address of the person.
+     * @param phoneNumber The phone number of the person.
      */
     Person(String firstName, String lastName,
              String address, String email, String phoneNumber) {
@@ -49,8 +49,8 @@ public class Person {
     /**
      * Constructs a Person with specified values for first name, and last name.
      * Address, email, and phone number are initialized to empty strings.
-     * @param firstName The first name of the customer.
-     * @param lastName The last name of the customer.
+     * @param firstName The first name of the person.
+     * @param lastName The last name of the person.
      */
     Person( String firstName, String lastName) {
         this.firstName = firstName;
@@ -61,80 +61,80 @@ public class Person {
     }
 
     /**
-     * Retrieves the first name of the customer.
-     * @return The firstName of the Customer.
+     * Retrieves the first name of the person.
+     * @return The firstName of the person.
      */
     public String getFirstName() {
         return firstName;
     }
 
     /**
-     * Retrieves the last name of the customer.
-     * @return The lastName of the Customer.
+     * Retrieves the last name of the person.
+     * @return The lastName of the person.
      */
     public String getLastName() {
         return lastName;
     }
 
     /**
-     * Retrieves the address of the customer.
-     * @return The address of the Customer.
+     * Retrieves the address of the person.
+     * @return The address of the person.
      */
     public String getAddress() {
         return address;
     }
 
     /**
-     * Retrieves the email address of the customer.
-     * @return The email address of the Customer.
+     * Retrieves the email address of the person.
+     * @return The email address of the person.
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * Retrieves the phone number of the customer.
-     * @return The phoneNumber of the Customer.
+     * Retrieves the phone number of the person.
+     * @return The phoneNumber of the person.
      */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     /**
-     * Sets the first name of the customer.
-     * @param firstName The first name to set for the Customer.
+     * Sets the first name of the person.
+     * @param firstName The first name to set for the person.
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /**
-     * Sets the last name of the customer.
-     * @param lastName The last name to set for the Customer.
+     * Sets the last name of the person.
+     * @param lastName The last name to set for the person.
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
-     * Sets the address of the customer.
-     * @param address The address to set for the Customer.
+     * Sets the address of the person.
+     * @param address The address to set for the person.
      */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
-     * Sets the email address of the customer.
-     * @param email The email address to set for the Customer.
+     * Sets the email address of the person.
+     * @param email The email address to set for the person.
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * Sets the phone number of the customer.
-     * @param phoneNumber The phone number to set for the Customer.
+     * Sets the phone number of the person.
+     * @param phoneNumber The phone number to set for the person.
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;

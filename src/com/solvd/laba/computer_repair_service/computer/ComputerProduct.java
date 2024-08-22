@@ -8,10 +8,10 @@ package com.solvd.laba.computer_repair_service.computer;
  * @version 1.0 12 Aug 2024
  * @author Ivan Mojica
  */
-public class ComputerPart {
+public class ComputerProduct {
 
     /** Holds the computer part's id at the computer repair service*/
-    private int partId;
+    private int productId;
 
     /** Holds the computer part´s name. */
     private String name;
@@ -27,8 +27,8 @@ public class ComputerPart {
      * Initializes partId to -1, name and manufacturer to an empty string,
      * and cost to 0.0.
      */
-    public ComputerPart() {
-        this.partId = 0;
+    public ComputerProduct() {
+        this.productId = 0;
         this.name = "";
         this.manufacturer = "";
         this.cost = 0;
@@ -37,13 +37,13 @@ public class ComputerPart {
     /**
      * Initializes partId, name, manufacturer and cost to the given values.
      * Allows to define all members of the ComputerPart.
-     * @param partId Computer repair service id for the new computer part.
+     * @param productId Computer repair service id for the new computer part.
      * @param name Name of the part.
      * @param manufacturer Name of the part's manufacturer.
      * @param cost Cost of the part.
      */
-    public ComputerPart(int partId, String name, String manufacturer, double cost) {
-        this.partId = partId;
+    public ComputerProduct(int productId, String name, String manufacturer, double cost) {
+        this.productId = productId;
         this.name = name;
         this.manufacturer = manufacturer;
         this.cost = cost;
@@ -52,12 +52,12 @@ public class ComputerPart {
     /**
      * Constructor for computer parts with unknown cost.
      * Sets partId, name and manufacturer to their given values, but cost is set to 0.0.
-     * @param partId Computer repair service id for the new computer part.
+     * @param productId Computer repair service id for the new computer part.
      * @param name Name of the part.
      * @param manufacturer Name of the part's manufacturer.
      */
-    public ComputerPart(int partId, String name, String manufacturer) {
-        this.partId = partId;
+    public ComputerProduct(int productId, String name, String manufacturer) {
+        this.productId = productId;
         this.name = name;
         this.manufacturer = manufacturer;
         this.cost = 0.0;
@@ -67,16 +67,16 @@ public class ComputerPart {
      * Retrieves the part's id for the computer repair service.
      * @return The ComputerPart's id
      */
-    public int getPartId() {
-        return this.partId;
+    public int getProductId() {
+        return this.productId;
     }
 
     /**
      * Sets the part's id to the given value.
-     * @param partId The new id for the computer part.
+     * @param productId The new id for the computer part.
      */
-    public void setPartId(int partId) {
-        this.partId = partId;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     /**
@@ -128,7 +128,7 @@ public class ComputerPart {
     }
 
     public void printInfo(){
-        System.out.println("Part ID: " + this.partId);
+        System.out.println("Part ID: " + this.productId);
         System.out.println("Name: " + this.name);
         System.out.println("Manufacturer: " + this.manufacturer);
         System.out.println("Cost: " + this.cost);

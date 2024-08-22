@@ -1,6 +1,8 @@
 package com.solvd.laba.computer_repair_service.service_management;
 
-import com.solvd.laba.computer_repair_service.people.Technician;
+import com.solvd.laba.computer_repair_service.computer.ComputerProduct;
+
+import java.util.ArrayList;
 
 /**
  * The ServiceTask class represents an individual task that is performed within
@@ -12,7 +14,7 @@ import com.solvd.laba.computer_repair_service.people.Technician;
  * @version 1.0 12 Aug 2024
  * @author Ivan Mojica
  */
-public class ServiceTask {
+public class Task {
 
     /** Holds the id for the task.*/
     private int taskId;
@@ -29,14 +31,14 @@ public class ServiceTask {
     /** Holds the cost of the task.*/
     private double cost;
 
-    private Technician technician;
+    private ArrayList<ComputerProduct> products;
 
     /**
      * Default constructor for ServiceTask.
      * Defaults taskId to -1, description and status to empty strings,
      * priority to 0, and cost to 0.0.
      * */
-    public ServiceTask() {
+    public Task() {
         this.taskId = -1;
         this.description = "";
         this.status = ServiceStatus.PENDING;
@@ -52,7 +54,7 @@ public class ServiceTask {
      * @param priority The priority of the task.
      * @param cost The cost of the task.
      */
-    public ServiceTask(int taskId, String description, ServiceStatus status, int priority, double cost) {
+    public Task(int taskId, String description, ServiceStatus status, int priority, double cost) {
         this.taskId = taskId;
         this.description = description;
         this.status = status;
@@ -67,7 +69,7 @@ public class ServiceTask {
      * @param description
      * @param cost
      */
-    public ServiceTask(int taskId, String description, double cost) {
+    public Task(int taskId, String description, double cost) {
         this.taskId = taskId;
         this.description = description;
         this.status = ServiceStatus.PENDING;
@@ -153,6 +155,14 @@ public class ServiceTask {
      */
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public ArrayList<ComputerProduct> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<ComputerProduct> products) {
+        this.products = products;
     }
 
     public void printInfo(){
