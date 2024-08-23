@@ -15,6 +15,8 @@ import java.util.ArrayList;
  * @author Ivan Mojica
  */
 public class Computer {
+    /** Computer form factors */
+    public enum FormFactor {DESKTOP, ALL_IN_ONE, LAPTOP}
 
     /** Holds the computer's id for the repair service */
     private int computerId;
@@ -34,6 +36,9 @@ public class Computer {
     /** Indicates if the computer is a custom build. */
     private boolean isCustomAssembled;
 
+    /** Holds the computer's form factor */
+    private FormFactor formFactor;
+
     private Motherboard motherboard;
     private Processor processor;
     private DiscreteGPU discreteGPU;
@@ -52,6 +57,7 @@ public class Computer {
         this.model = "";
         this.year = 0;
         this.isCustomAssembled = false;
+        this.formFactor = FormFactor.DESKTOP;
     }
 
     /**
@@ -64,8 +70,12 @@ public class Computer {
      * @param model The computer's model.
      * @param year The computer's production year
      * @param isCustomAssembled Whether the computer was a custom assembly or not.
+     * @param formFactor The computer's form factor
      */
-    public Computer(int computerId, String serialNumber, String brand, String model, int year, boolean isCustomAssembled, Motherboard motherboard, Processor processor, DiscreteGPU discreteGPU, IntegratedGPU internalGPU, ArrayList<RAM> ram) {
+    public Computer(int computerId, String serialNumber, String brand, String model,
+                    int year, boolean isCustomAssembled, Motherboard motherboard, Processor processor,
+                    DiscreteGPU discreteGPU, IntegratedGPU internalGPU, ArrayList<RAM> ram,
+                    FormFactor formFactor) {
         this.computerId = computerId;
         this.serialNumber = serialNumber != null ? serialNumber : "";  // Set default if null
         this.brand = brand != null ? brand : "";                     // Set default if null
@@ -77,6 +87,7 @@ public class Computer {
         this.discreteGPU = discreteGPU;
         this.internalGPU = internalGPU;
         this.ram = ram;
+        this.formFactor = formFactor;
     }
 
     /**
