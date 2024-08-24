@@ -1,9 +1,9 @@
 package com.solvd.laba.computer_repair_service;
 
-import com.solvd.laba.computer_repair_service.computer.Computer;
-import com.solvd.laba.computer_repair_service.computer.hardware.*;
-import com.solvd.laba.computer_repair_service.people.Customer;
-import com.solvd.laba.computer_repair_service.service_management.ServiceRequest;
+import com.solvd.laba.computer_repair_service.model.computer.Computer;
+import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
+import com.solvd.laba.computer_repair_service.model.people.Customer;
+import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
 
 import java.util.ArrayList;
 
