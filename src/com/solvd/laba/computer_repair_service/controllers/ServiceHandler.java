@@ -4,6 +4,7 @@ import com.solvd.laba.computer_repair_service.model.Input;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import com.solvd.laba.computer_repair_service.views.CreateCustomerView;
 import com.solvd.laba.computer_repair_service.views.CreateRequestView;
+import com.solvd.laba.computer_repair_service.views.CreateTaskView;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -11,25 +12,37 @@ import java.util.Scanner;
 public class ServiceHandler {
     private CreateCustomerView createCustomerView;
     private CreateRequestView createRequestView;
+    private CreateTaskView createTaskView;
     private CustomerController customerController;
     private RequestController requestController;
+    private TaskController taskController;
 
     public ServiceHandler(){
         createCustomerView = new CreateCustomerView();
         customerController = new CustomerController();
         requestController = new RequestController();
         createRequestView = new CreateRequestView();
+        taskController = new TaskController();
+        createTaskView = new CreateTaskView();
     }
 
     public void service(){
         //receiveCustomer();
-        createRequest();
+        //createRequest();
+        createTask();
+
         /*receiveComputer();
         createIssues();
         createOrder();
         executeRepairs();
         informResults();
         bill();*/
+    }
+
+    public void createTask(){
+        createTaskView.display();
+        HashMap<String, Input<?>> inputs = createTaskView.getInputs();
+        taskController.createTask(inputs);
     }
 
     public void createRequest(){
@@ -44,27 +57,4 @@ public class ServiceHandler {
         customerController.createCustomer(customerInputs);
     }
 
-    public Task showIssueCreation() {
-        /*
-        While client needs more issues
-            show options
-            get user input
-            validate input and store issue or rollback
-         */
-
-        return new Task();
-    }
-
-    public void showIssueOption(){
-        System.out.println("How can we help you?.");
-        System.out.println("\t1) I want a diagnose");
-        System.out.println("\t2) My computer needs maintenance");
-        System.out.println("\t3) Screen won't work properly");
-        System.out.println("\t4) Computer won't boot");
-        System.out.println("\t5) Keyboard won't work properly");
-        System.out.println("\t6) Mouse won't work properly");
-        System.out.println("\t7) Battery doesn't last / Computer won't work without charger");
-        System.out.println("\t8) Computer heats up too much");
-        System.out.println("\t9) Computer makes strange sound");
-    }
 }

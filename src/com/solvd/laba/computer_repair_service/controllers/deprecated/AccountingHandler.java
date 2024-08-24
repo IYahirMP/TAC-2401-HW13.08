@@ -1,4 +1,4 @@
-package com.solvd.laba.computer_repair_service.controllers;
+package com.solvd.laba.computer_repair_service.controllers.deprecated;
 
 import com.solvd.laba.computer_repair_service.model.accounting.*;
 import com.solvd.laba.computer_repair_service.model.people.Customer;

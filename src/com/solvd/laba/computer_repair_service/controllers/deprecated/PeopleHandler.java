@@ -1,7 +1,6 @@
-package com.solvd.laba.computer_repair_service.controllers;
+package com.solvd.laba.computer_repair_service.controllers.deprecated;
 
 import com.solvd.laba.computer_repair_service.model.computer.specialties.*;
-import com.solvd.laba.computer_repair_service.model.people.Customer;
 import com.solvd.laba.computer_repair_service.model.people.Employee;
 import com.solvd.laba.computer_repair_service.model.people.Technician;
 
