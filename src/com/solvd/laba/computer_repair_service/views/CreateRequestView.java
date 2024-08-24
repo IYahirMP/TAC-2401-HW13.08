@@ -16,16 +16,13 @@ public class CreateRequestView extends FeedbackView{
     }
 
     public void display(){
-        System.out.println("Register new customer.");
+        System.out.println("Creating a new request.");
+        System.out.println("Please, describe your request.");
     }
 
     public HashMap<String, Input<?>> getInputs(){
         String[] inputName = {
-                "firstName",
-                "lastName",
-                "address",
-                "email",
-                "phoneNumber"
+                "Description"
         };
 
         for (String name : inputName){

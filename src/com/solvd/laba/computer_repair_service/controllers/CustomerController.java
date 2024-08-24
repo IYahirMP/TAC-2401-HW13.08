@@ -14,7 +14,7 @@ public class CustomerController {
         this.nextCustomerId = 0;
     }
 
-    public Customer createCustomer(HashMap<String, Input<?>> inputs){
+    public void createCustomer(HashMap<String, Input<?>> inputs){
         Customer newCustomer;
 
         newCustomer = new Customer(
@@ -28,6 +28,5 @@ public class CustomerController {
 
         customers.put(nextCustomerId, newCustomer);
         nextCustomerId++;
-        return newCustomer;
     }
 }

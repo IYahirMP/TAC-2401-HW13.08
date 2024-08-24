@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public abstract class View
 {
-    protected HashMap<String, Input> displayData;
+    protected HashMap<String, Input<?>> displayData;
 
     public View(){
         displayData = new HashMap<>();

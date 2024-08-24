@@ -8,34 +8,20 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class OperationsHandler {
-    private int nextRequestId;
     private int nextTaskId;
     private Scanner input;
-    private HashMap<Integer, ServiceRequest> requests;
     private HashMap<Integer, Task> tasks;
 
     public OperationsHandler() {
-        requests = new HashMap<>();
         tasks = new HashMap<>();
-        nextRequestId = 0;
         nextTaskId = 0;
     }
 
     // Main logic starts here
 
-    protected ServiceRequest createRequest(Customer customer) {
-        int requestId = nextRequestId;
-        LocalDate requestDate = LocalDate.now();
-        ServiceStatus status = ServiceStatus.ONGOING;
-        ArrayList<Task> requestTasks = new ArrayList<>();
-        boolean toFinish;
+    /*protected ServiceRequest createRequest(Customer customer) {
 
-        ServiceRequest newRequest = new ServiceRequest(
-                requestId,
-                requestDate,
-                status,
-                ""
-        );
+        ServiceRequest newRequest = new ServiceRequest();
 
         while (true) {
             Task newTask = new Task();
@@ -65,7 +51,7 @@ public class OperationsHandler {
         newRequest.updateDescription();
         nextRequestId++;
         return newRequest;
-    }
+    }*/
 
     protected Task createIssue(int faultChoice){
         Task newTask;
