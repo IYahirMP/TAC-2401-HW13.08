@@ -6,11 +6,15 @@ import java.util.HashMap;
 
 public abstract class View
 {
-    protected HashMap<String, Input<?>> displayData;
+    protected HashMap<String, Object> displayData;
 
     public View(){
         displayData = new HashMap<>();
     }
 
     public abstract void display();
+
+    public void setInputs(HashMap<String, Object> inputs){
+        displayData = inputs;
+    }
 }

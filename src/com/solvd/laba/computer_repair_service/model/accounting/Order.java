@@ -1,6 +1,7 @@
 package com.solvd.laba.computer_repair_service.model.accounting;
 
 import com.solvd.laba.computer_repair_service.model.people.Customer;
+import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTask;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,24 @@ public class Order {
         this.state = state;
         this.items = items;
         this.invoice = invoice;
+    }
+
+    public static double getServiceCost(TypeOfTask service){
+        double cost = 0.0;
+        cost = switch (service) {
+            case TypeOfTask.DIAGNOSE -> 100;
+            case TypeOfTask.MAINTENANCE -> 200;
+            case TypeOfTask.FIX_NO_SCREEN -> 200;
+            case TypeOfTask.FIX_NO_BOOT -> 200;
+            case TypeOfTask.FIX_BAD_KEYBOARD -> 100;
+            case TypeOfTask.FIX_BAD_MOUSE -> 100;
+            case TypeOfTask.FIX_BAD_BATTERY -> 100;
+            case TypeOfTask.FIX_OVERHEAT -> 200;
+            case TypeOfTask.FIX_STRANGE_SOUND -> 200;
+            default -> {throw new IllegalArgumentException("Invalid option");}
+        };
+
+        return cost;
     }
 
     public int getOrder_id() {
@@ -78,5 +97,22 @@ public class Order {
 
     public void addItem(OrderItem item) {
         items.add(item);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Order ID: " + order_id + "\n");
+        sb.append("Total Cost: " + total + "\n");
+        sb.append("State: " + state + "\n");
+        sb.append("Items:\n");
+        for (int i = 0; i < items.size(); i++) {
+            sb.append("---------------------------------------------\n");
+            sb.append("Task number " + i + "\n");
+            sb.append("---------------------------------------------\n");
+            sb.append(items.get(i).toString() + "\n");
+        }
+
+        return sb.toString();
     }
 }

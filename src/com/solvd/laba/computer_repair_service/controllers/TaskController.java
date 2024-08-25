@@ -16,7 +16,7 @@ public class TaskController {
         nextTaskId = 0;
     }
 
-    public void createTask(HashMap<String, Input<?>> inputs){
+    public Task createTask(HashMap<String, Input<?>> inputs){
         int choice = (int) inputs.get("choice").getValue();
         TypeOfTask type = switch (choice) {
             case 1 -> TypeOfTask.DIAGNOSE;
@@ -39,5 +39,7 @@ public class TaskController {
 
         tasks.put(nextTaskId, task);
         nextTaskId++;
+
+        return task;
     }
 }

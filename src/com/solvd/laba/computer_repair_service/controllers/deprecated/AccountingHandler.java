@@ -28,35 +28,6 @@ public class AccountingHandler {
 
     /** Main Logic */
 
-    protected Order createOrder(ServiceRequest request){
-        Order newOrder;
-        ArrayList<OrderItem> items = new ArrayList<>();
-        ArrayList<Task> tasks = request.getTasks();
-        double total = 0.0;
-
-        for(Task task: tasks){
-            OrderItem newItem = new OrderItem(
-              task.getDescription(),
-              task.getCost(),
-              1
-            );
-
-            total += task.getCost();
-            items.add(newItem);
-        }
-
-        newOrder = new Order(
-                lastOrderId + 1,
-                total,
-                Order.OrderState.ONGOING,
-                items
-        );
-
-        orders.put(lastOrderId + 1, newOrder);
-        lastOrderId++;
-        return newOrder;
-    }
-
     protected Invoice createInvoice(Order order){
         Invoice newInvoice = new Invoice(
                 lastInvoiceId + 1,

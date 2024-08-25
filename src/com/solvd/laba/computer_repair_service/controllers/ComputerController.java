@@ -1,4 +1,4 @@
-package com.solvd.laba.computer_repair_service.controllers.deprecated;
+package com.solvd.laba.computer_repair_service.controllers;
 
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
 import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
@@ -6,12 +6,12 @@ import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ComputerHandler {
+public class ComputerController {
     private int nextComputerId;
     private int nextHardwareId;
     HashMap<Integer, Computer> computers;
 
-    public ComputerHandler() {
+    public ComputerController() {
         computers = new HashMap<>();
         nextComputerId = 0;
         nextHardwareId = 0;
@@ -19,7 +19,7 @@ public class ComputerHandler {
 
     /** Main Logic */
 
-    Computer createComputer(){
+    public Computer createComputer(){
         /*Scanner scanner = new Scanner(System.in);
         System.out.println("Computer register helper");
         System.out.print("Enter computer serial number: ");

@@ -16,7 +16,7 @@ public class RequestController {
         nextRequestId = 0;
     }
 
-    public void createRequest(HashMap<String, Input<?>> inputs) {
+    public ServiceRequest createRequest(HashMap<String, Input<?>> inputs) {
         ServiceRequest newRequest = new ServiceRequest(
                 nextRequestId,
                 LocalDate.now(),
@@ -26,6 +26,8 @@ public class RequestController {
 
         requests.put(nextRequestId, newRequest);
         nextRequestId++;
+
+        return newRequest;
     }
 
 }

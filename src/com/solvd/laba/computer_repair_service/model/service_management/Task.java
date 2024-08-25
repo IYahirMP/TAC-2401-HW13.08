@@ -28,9 +28,6 @@ public class Task {
     /** Holds the priority of the task. Higher values mean higher priority*/
     private int priority;
 
-    /** Holds the cost of the task.*/
-    private double cost;
-
     private TypeOfTask typeOfTask;
 
     private ArrayList<ComputerProduct> products;
@@ -45,7 +42,6 @@ public class Task {
         this.description = "";
         this.status = ServiceStatus.PENDING;
         this.priority = 0;
-        this.cost = 0;
         this.typeOfTask = TypeOfTask.DIAGNOSE;
     }
 
@@ -179,22 +175,6 @@ public class Task {
         this.priority = priority;
     }
 
-    /**
-     * Retrieves the cost assigned to the task.
-     * @return The cost of the task.
-     */
-    public double getCost() {
-        return this.cost;
-    }
-
-    /**
-     * Sets a new cost for the task.
-     * @param cost The new cost for the task.
-     */
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
-
     public ArrayList<ComputerProduct> getProducts() {
         return products;
     }
@@ -216,7 +196,6 @@ public class Task {
         System.out.println("Description: " + this.description);
         System.out.println("Status: " + this.status);
         System.out.println("Priority: " + this.priority);
-        System.out.println("Cost: " + this.cost);
         System.out.println("------------------------------------");
     }
 }

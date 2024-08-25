@@ -34,4 +34,14 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Description: " + description + "\n");
+        sb.append("Price: " + price + "\n");
+        sb.append("Quantity: " + quantity + "\n");
+
+        return sb.toString();
+    }
 }
