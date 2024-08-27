@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.model.service_management;
 
+import com.solvd.laba.computer_repair_service.model.computer.Computer;
 import com.solvd.laba.computer_repair_service.model.computer.ComputerProduct;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * @version 1.0 12 Aug 2024
  * @author Ivan Mojica
  */
-public class Task {
+public class Task implements Comparable<Task>{
 
     /** Holds the id for the task.*/
     private int taskId;
@@ -32,6 +33,8 @@ public class Task {
 
     private ArrayList<ComputerProduct> products;
 
+    private Computer computer;
+
     /**
      * Default constructor for ServiceTask.
      * Defaults taskId to -1, description and status to empty strings,
@@ -43,6 +46,7 @@ public class Task {
         this.status = ServiceStatus.PENDING;
         this.priority = 0;
         this.typeOfTask = TypeOfTask.DIAGNOSE;
+        this.computer = new Computer();
     }
 
     /**
@@ -191,11 +195,22 @@ public class Task {
         this.typeOfTask = typeOfTask;
     }
 
-    public void printInfo(){
-        System.out.println("Task ID: " + this.taskId);
-        System.out.println("Description: " + this.description);
-        System.out.println("Status: " + this.status);
-        System.out.println("Priority: " + this.priority);
-        System.out.println("------------------------------------");
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nTask ID: " + this.taskId);
+        sb.append("\nDescription: " + this.description);
+        sb.append("\nStatus: " + this.status);
+        sb.append("\nPriority: " + this.priority);
+        //.append("\n------------------------------------");
+
+        return sb.toString();
     }
+
+    @Override
+    public int compareTo(Task task) {
+        //Highest priority comes first
+        return -Integer.compare(this.priority, task.priority);
+        }
+
 }

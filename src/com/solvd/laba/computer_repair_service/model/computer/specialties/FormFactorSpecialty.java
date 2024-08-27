@@ -4,6 +4,8 @@ import com.solvd.laba.computer_repair_service.model.computer.Computer;
 
 public abstract class FormFactorSpecialty implements Maintainer{
 
+    protected String formFactorName;
+
     public void correctiveMaintenance(Computer computer) {
 
     }

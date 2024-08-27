@@ -1,4 +1,4 @@
-package com.solvd.laba.computer_repair_service.controllers.deprecated;
+package com.solvd.laba.computer_repair_service.controllers;
 
 import com.solvd.laba.computer_repair_service.model.computer.specialties.*;
 import com.solvd.laba.computer_repair_service.model.people.Employee;
@@ -7,7 +7,7 @@ import com.solvd.laba.computer_repair_service.model.people.Technician;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class PeopleHandler {
+public class TechnicianController {
     private int nextTechnicianId;
     private int nextEmployeeId;
     private enum SoftwareSpecialty {LINUX, MAC, WINDOWS}
@@ -15,9 +15,62 @@ public class PeopleHandler {
     private HashMap<Integer, Employee> employees;
     private HashMap<Integer, Technician> technicians;
 
-    public PeopleHandler() {
+    public TechnicianController() {
         nextTechnicianId = 0;
         technicians = new HashMap<>();
+
+        Technician technician1 = new Technician(
+                "Jorge",
+                "Salinas",
+                "Oak Street",
+                "JSalinas@domain.com",
+                "1233211232",
+                0,
+                0,
+                new WindowsSpecialty(),
+                new DesktopSpecialty()
+        );
+
+        Technician technician2 = new Technician(
+                "Ricardo",
+                "Salinas",
+                "Oak Street",
+                "JSalinas@domain.com",
+                "1233211232",
+                0,
+                0,
+                new WindowsSpecialty(),
+                new LaptopSpecialty()
+        );
+
+        Technician technician3 = new Technician(
+                "Pedro",
+                "Paramo",
+                "Oak Street",
+                "JSalinas@domain.com",
+                "1233211232",
+                0,
+                0,
+                new LinuxSpecialty(),
+                new DesktopSpecialty()
+        );
+
+        Technician technician4 = new Technician(
+                "Pedro",
+                "Rodriguez",
+                "Oak Street",
+                "JSalinas@domain.com",
+                "1233211232",
+                0,
+                0,
+                new MacSpecialty(),
+                new LaptopSpecialty()
+        );
+
+        technicians.put(0,technician1);
+        technicians.put(1,technician2);
+        technicians.put(2,technician3);
+        technicians.put(3,technician4);
     }
 
     // Main Logic starts here

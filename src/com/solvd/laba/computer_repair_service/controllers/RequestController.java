@@ -1,6 +1,7 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
-import com.solvd.laba.computer_repair_service.model.Input;
+import com.solvd.laba.computer_repair_service.input.Input;
+import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceStatus;
 
@@ -16,7 +17,7 @@ public class RequestController {
         nextRequestId = 0;
     }
 
-    public ServiceRequest createRequest(HashMap<String, Input<?>> inputs) {
+    public ServiceRequest createRequest(HashMap<String, SingleInput<?>> inputs) {
         ServiceRequest newRequest = new ServiceRequest(
                 nextRequestId,
                 LocalDate.now(),

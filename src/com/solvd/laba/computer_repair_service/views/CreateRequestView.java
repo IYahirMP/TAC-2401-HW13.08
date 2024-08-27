@@ -1,18 +1,20 @@
 package com.solvd.laba.computer_repair_service.views;
 
-import com.solvd.laba.computer_repair_service.model.Input;
-import com.solvd.laba.computer_repair_service.model.StringInput;
+import com.solvd.laba.computer_repair_service.input.Input;
+import com.solvd.laba.computer_repair_service.input.SingleInput;
+import com.solvd.laba.computer_repair_service.input.single_input.StringInput;
+import com.solvd.laba.computer_repair_service.input.visitors.RetrieveInputVisitor;
 
 import java.util.HashMap;
 
 public class CreateRequestView extends FeedbackView{
 
-    public CreateRequestView(HashMap<String, Input<?>> inputs){
+    public CreateRequestView(HashMap<String, SingleInput<?>> inputs){
         super(inputs);
     }
 
     public CreateRequestView(){
-        super(new HashMap<String, Input<?>>());
+        super(new HashMap<String, SingleInput<?>>());
     }
 
     public void display(){
@@ -20,15 +22,15 @@ public class CreateRequestView extends FeedbackView{
         System.out.println("Please, describe your request.");
     }
 
-    public HashMap<String, Input<?>> getInputs(){
+    public HashMap<String, SingleInput<?>> getInputs(){
         String[] inputName = {
                 "Description"
         };
 
         for (String name : inputName){
-            Input<String> currentInput = new StringInput();
+            SingleInput<String> currentInput = new StringInput();
             System.out.print(name + ": ");
-            currentInput.retrieveInput();
+            currentInput.accept(new RetrieveInputVisitor());
             inputs.put(name, currentInput);
         }
 

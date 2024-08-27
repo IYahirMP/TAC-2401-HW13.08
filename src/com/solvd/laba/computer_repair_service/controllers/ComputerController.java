@@ -20,21 +20,6 @@ public class ComputerController {
     /** Main Logic */
 
     public Computer createComputer(){
-        /*Scanner scanner = new Scanner(System.in);
-        System.out.println("Computer register helper");
-        System.out.print("Enter computer serial number: ");
-        String serialNumber = scanner.nextLine();
-        System.out.print("Enter computer brand: ");
-        String brand = scanner.nextLine();
-        System.out.print("Enter computer model: ");
-        String model = scanner.nextLine();
-        System.out.print("Enter computer year of assembly: ");
-        int yearOfAssembly = scanner.nextInt();
-        System.out.println("Is the computer assembled? ");
-        System.out.print("1) Yes");
-        System.out.print("2) No");
-        int isAssembled = scanner.nextInt();*/
-
         // Variable declarations
         Motherboard motherboard;
         Processor processor;

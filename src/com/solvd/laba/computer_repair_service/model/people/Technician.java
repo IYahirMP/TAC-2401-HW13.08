@@ -2,6 +2,14 @@ package com.solvd.laba.computer_repair_service.model.people;
 
 import com.solvd.laba.computer_repair_service.model.computer.specialties.FormFactorSpecialty;
 import com.solvd.laba.computer_repair_service.model.computer.specialties.OperatingSystemSpecialty;
+import com.solvd.laba.computer_repair_service.model.service_management.Task;
+import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTask;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * The class Technician represents a technician at the computer repair service.
@@ -12,7 +20,7 @@ import com.solvd.laba.computer_repair_service.model.computer.specialties.Operati
  * @version 1.0 12 Aug 2024
  * @author Ivan Mojica
  */
-public class Technician extends Employee{
+public class Technician extends Employee {
 
     /** Holds the technician's id at the computer repair service.*/
     private int technicianId;
@@ -20,6 +28,8 @@ public class Technician extends Employee{
     private OperatingSystemSpecialty operatingSystemSpecialty;
 
     private FormFactorSpecialty formFactorSpecialty;
+
+    private PriorityQueue<Task> taskQueue;
 
     /**
      * Default constructor for Technician.
@@ -29,6 +39,9 @@ public class Technician extends Employee{
     public Technician() {
         super();
         this.technicianId = -1;
+        this.operatingSystemSpecialty = null;
+        this.formFactorSpecialty = null;
+        this.taskQueue = new PriorityQueue<>();
     }
 
     /**
@@ -71,6 +84,75 @@ public class Technician extends Employee{
     public void setTechnicianId(int technicianId) {
         this.technicianId = technicianId;
     }
+
+    public void addTask(Task task){
+        taskQueue.add(task);
+    }
+
+    public Task getNextTask(){
+        return taskQueue.peek();
+    }
+
+    public void performNextTask(){
+        if (taskQueue.isEmpty()){
+            return;
+        }
+
+        Task currentTask = taskQueue.peek();
+        switch(currentTask.getTypeOfTask()){
+            case TypeOfTask.DIAGNOSE -> diagnose();
+            case TypeOfTask.FIX_BAD_BATTERY -> fixBattery();
+            case TypeOfTask.FIX_BAD_MOUSE -> fixMouse();
+            case TypeOfTask.FIX_NO_BOOT -> fixBoot();
+            case TypeOfTask.FIX_OVERHEAT -> fixOverHeat();
+            case TypeOfTask.FIX_NO_SCREEN -> fixBadScreen();
+            case TypeOfTask.FIX_BAD_KEYBOARD -> fixKeyboard();
+            case TypeOfTask.FIX_STRANGE_SOUND -> fixStrangeSound();
+            case TypeOfTask.MAINTENANCE -> maintain();
+            case TypeOfTask.REPAIR -> repair();
+        }
+    }
+
+    public void diagnose(){
+
+    }
+
+    public void fixBattery(){
+
+    }
+
+    public void fixMouse(){
+
+    }
+
+    public void fixBoot(){
+
+    }
+
+    public void fixOverHeat(){
+
+    }
+
+    public void fixBadScreen(){
+
+    }
+
+    public void fixKeyboard(){
+
+    }
+
+    public void fixStrangeSound(){
+
+    }
+
+    public void maintain(){
+
+    }
+
+    public void repair(){
+
+    }
+
 
     @Override
     public String toString() {

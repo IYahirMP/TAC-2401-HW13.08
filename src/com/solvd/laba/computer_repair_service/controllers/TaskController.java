@@ -1,6 +1,7 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
-import com.solvd.laba.computer_repair_service.model.Input;
+import com.solvd.laba.computer_repair_service.input.Input;
+import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceStatus;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTask;
@@ -16,7 +17,7 @@ public class TaskController {
         nextTaskId = 0;
     }
 
-    public Task createTask(HashMap<String, Input<?>> inputs){
+    public Task createTask(HashMap<String, SingleInput<?>> inputs){
         int choice = (int) inputs.get("choice").getValue();
         TypeOfTask type = switch (choice) {
             case 1 -> TypeOfTask.DIAGNOSE;

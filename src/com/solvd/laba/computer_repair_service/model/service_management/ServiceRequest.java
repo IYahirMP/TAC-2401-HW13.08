@@ -1,6 +1,7 @@
 package com.solvd.laba.computer_repair_service.model.service_management;
 
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
+import com.solvd.laba.computer_repair_service.model.people.Technician;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -97,6 +98,12 @@ public class ServiceRequest {
     }
 
     // Logic
+
+    public void assignTechnicians(ArrayList<Technician> technicians) {
+        for (int i = 0; i < tasks.size(); i++) {
+            technicians.get(i);
+        }
+    }
 
     public boolean hasTask(TypeOfTask type) {
         for(Task task : tasks){
@@ -219,11 +226,14 @@ public class ServiceRequest {
         this.order = order;
     }
 
-    public void printInfo(){
-        System.out.println("Request ID: " + this.requestId);
-        System.out.println("Request Date: " + this.requestDate);
-        System.out.println("Status: " + this.status);
-        System.out.println("Description: " + this.description);
-        System.out.println("------------------------------------");
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Request ID: " + this.requestId);
+        sb.append("\nRequest Date: " + this.requestDate);
+        sb.append("\nStatus: " + this.status);
+        sb.append("\nDescription: " + this.description);
+
+        return sb.toString();
     }
 }
