@@ -1,7 +1,5 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
-import com.solvd.laba.computer_repair_service.input.Input;
-import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceStatus;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTask;
@@ -9,13 +7,15 @@ import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTas
 import java.util.HashMap;
 
 public class TaskController {
-    private int nextTaskId;
-    private HashMap<Integer, Task> tasks;
+    private static int nextTaskId;
+    private static HashMap<Integer, Task> tasks;
 
-    public TaskController() {
+    static{
         tasks = new HashMap<>();
         nextTaskId = 0;
     }
+
+    public TaskController() {}
 
     public Task createTask(HashMap<String, String> inputs){
         int choice = Integer.parseInt(inputs.get("choice"));

@@ -9,13 +9,15 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 public class RequestController {
-    private int nextRequestId;
-    private HashMap<Integer, ServiceRequest> requests;
+    private static int nextRequestId;
+    private static HashMap<Integer, ServiceRequest> requests;
 
-    public RequestController() {
+    static{
         requests = new HashMap<>();
         nextRequestId = 0;
     }
+
+    public RequestController() {}
 
     public ServiceRequest createRequest(HashMap<String, String> inputs) {
         ServiceRequest newRequest = new ServiceRequest(

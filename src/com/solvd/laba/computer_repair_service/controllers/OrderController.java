@@ -10,13 +10,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class OrderController {
-    private int nextOrderId;
-    private HashMap<Integer, Order> orders;
+    private static int nextOrderId;
+    private static HashMap<Integer, Order> orders;
 
-    public OrderController() {
+    static{
         orders = new HashMap<>();
         nextOrderId = 0;
     }
+
+    public OrderController() {}
 
     public Order createOrder(ServiceRequest request){
         Order newOrder;

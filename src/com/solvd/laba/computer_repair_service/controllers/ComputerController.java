@@ -7,15 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ComputerController {
-    private int nextComputerId;
-    private int nextHardwareId;
-    HashMap<Integer, Computer> computers;
+    private static int nextComputerId;
+    private static int nextHardwareId;
+    private static HashMap<Integer, Computer> computers;
 
-    public ComputerController() {
+    static{
         computers = new HashMap<>();
         nextComputerId = 0;
         nextHardwareId = 0;
     }
+
+    public ComputerController() {}
 
     /** Main Logic */
 

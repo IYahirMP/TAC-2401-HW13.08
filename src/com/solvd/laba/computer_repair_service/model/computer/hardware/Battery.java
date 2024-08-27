@@ -20,7 +20,7 @@ public class Battery {
     }
 
     // Getters and setters
-    public int getCapacity() {
+    public final int getCapacity() {
         return capacity;
     }
 

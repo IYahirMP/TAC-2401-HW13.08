@@ -8,14 +8,15 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class TechnicianController {
-    private int nextTechnicianId;
-    private int nextEmployeeId;
     private enum SoftwareSpecialty {LINUX, MAC, WINDOWS}
     private enum HardwareSpecialty {ALL_IN_ONE, DESKTOP, LAPTOP}
-    private HashMap<Integer, Employee> employees;
-    private HashMap<Integer, Technician> technicians;
 
-    public TechnicianController() {
+    private static int nextTechnicianId;
+    private static int nextEmployeeId;
+    private static HashMap<Integer, Employee> employees;
+    private static HashMap<Integer, Technician> technicians;
+
+    static{
         nextTechnicianId = 0;
         technicians = new HashMap<>();
 
@@ -72,6 +73,8 @@ public class TechnicianController {
         technicians.put(2,technician3);
         technicians.put(3,technician4);
     }
+
+    public TechnicianController() {}
 
     // Main Logic starts here
 

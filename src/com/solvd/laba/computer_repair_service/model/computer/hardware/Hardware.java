@@ -23,27 +23,27 @@ public abstract class Hardware {
         this.isWorkingProperly = isWorkingProperly;
     }
 
-    public String getBrand() {
+    public final String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public final void setBrand(String brand) {
         this.brand = brand;
     }
 
-    public String getModel() {
+    public final String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public final void setModel(String model) {
         this.model = model;
     }
 
-    public boolean isWorkingProperly() {
+    public final boolean isWorkingProperly() {
         return isWorkingProperly;
     }
 
-    public void setWorkingProperly(boolean isWorkingProperly) {
+    public final void setWorkingProperly(boolean isWorkingProperly) {
         this.isWorkingProperly = isWorkingProperly;
     }
 

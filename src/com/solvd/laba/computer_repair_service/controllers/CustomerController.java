@@ -11,12 +11,15 @@ import com.solvd.laba.computer_repair_service.model.people.Customer;
 import java.util.HashMap;
 
 public class CustomerController {
-    private int nextCustomerId;
-    private HashMap<Integer, Customer> customers;
+    private static int nextCustomerId;
+    private static HashMap<Integer, Customer> customers;
+
+    static{
+        nextCustomerId = 0;
+        customers = new HashMap<>();
+    }
 
     public CustomerController() {
-        this.customers = new HashMap<>();
-        this.nextCustomerId = 0;
     }
 
     public void createCustomer(HashMap<String, String> input){
