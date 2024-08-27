@@ -111,20 +111,20 @@ public class ServiceHandler {
 
     public void createTask(){
         createTaskView.display();
-        HashMap<String, SingleInput<?>> inputs = createTaskView.getInputs();
+        HashMap<String, String> inputs = createTaskView.getInputs();
         Task task = taskController.createTask(inputs);
         currentRequest.addTask(task);
     }
 
     public void createRequest(){
         createRequestView.display();
-        HashMap<String, SingleInput<?>> requestInputs = createRequestView.getInputs();
+        HashMap<String, String> requestInputs = createRequestView.getInputs();
         currentRequest = requestController.createRequest(requestInputs);
     }
 
     public void receiveCustomer(){
         createCustomerView.display();
-        HashMap<String, SingleInput<?>> customerInputs = createCustomerView.getInputs();
+        HashMap<String, String> customerInputs = createCustomerView.getInputs();
         customerController.createCustomer(customerInputs);
     }
 

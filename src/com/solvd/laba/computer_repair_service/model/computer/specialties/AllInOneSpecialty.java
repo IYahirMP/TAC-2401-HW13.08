@@ -2,7 +2,7 @@ package com.solvd.laba.computer_repair_service.model.computer.specialties;
 
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
 
-public class AllInOneSpecialty extends FormFactorSpecialty{
+public final class AllInOneSpecialty extends FormFactorSpecialty{
     public AllInOneSpecialty() {}
 
     public void openCase(Computer computer) {

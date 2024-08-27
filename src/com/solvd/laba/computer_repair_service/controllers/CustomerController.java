@@ -19,17 +19,17 @@ public class CustomerController {
         this.nextCustomerId = 0;
     }
 
-    public void createCustomer(HashMap<String, SingleInput<?>> input){
+    public void createCustomer(HashMap<String, String> input){
         Customer newCustomer;
         GetValueVisitor getValue = new GetValueVisitor();
 
         newCustomer = new Customer(
                 nextCustomerId,
-                (String) input.get("firstName").accept(getValue),
-                (String) input.get("lastName").accept(getValue),
-                (String) input.get("address").accept(getValue),
-                (String) input.get("email").accept(getValue),
-                (String) input.get("phoneNumber").accept(getValue)
+                input.get("firstName"),
+                input.get("lastName"),
+                input.get("address"),
+                input.get("email"),
+                input.get("phoneNumber")
         );
 
         customers.put(nextCustomerId, newCustomer);

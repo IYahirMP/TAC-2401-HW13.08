@@ -8,8 +8,6 @@ import com.solvd.laba.computer_repair_service.input.visitors.ValueInputVisitor;
 import java.util.HashMap;
 
 public class CustomerInput extends ComplexInput {
-    private HashMap<String, SingleInput<?>> value;
-
     public CustomerInput(){
         super();
     }
@@ -18,7 +16,7 @@ public class CustomerInput extends ComplexInput {
         visitor.visitCustomer(this);
     }
 
-    public HashMap<String, SingleInput<?>> accept(ValueInputVisitor visitor){
+    public HashMap<String, SingleInput<String>> accept(ValueInputVisitor visitor){
         return visitor.visitCustomer(this);
     }
 }

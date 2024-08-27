@@ -17,7 +17,7 @@ public class OrderInput extends ComplexInput {
         visitor.visitOrder(this);
     }
 
-    public HashMap<String, SingleInput<?>> accept(ValueInputVisitor visitor){
+    public HashMap<String, SingleInput<String>> accept(ValueInputVisitor visitor){
         return visitor.visitOrder(this);
     }
 

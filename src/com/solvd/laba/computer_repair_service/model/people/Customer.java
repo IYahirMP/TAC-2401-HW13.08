@@ -151,4 +151,26 @@ public class Customer extends Person{
         result += "Customer ID: " + customerId + "\n";
         return result;
     }
+
+    @Override
+    public int hashCode(){
+        int hash = 17;
+        hash = 31 * hash + super.hashCode();
+        hash = 31 * hash + customerId;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj){
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+
+        Customer other = (Customer) obj;
+        return customerId == other.customerId;
+    }
 }

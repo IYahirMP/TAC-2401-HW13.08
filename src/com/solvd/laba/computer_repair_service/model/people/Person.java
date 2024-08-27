@@ -149,4 +149,29 @@ public class Person {
                 "Phone Number: " + phoneNumber + "\n";
     }
 
+    @Override
+    public int hashCode(){
+        int hash = 17;
+        hash = hash * 31 + firstName.hashCode();
+        hash = hash * 31 + lastName.hashCode();
+        hash = hash * 31 + address.hashCode();
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj){
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+
+        Customer other = (Customer) obj;
+        return firstName.equals(other.firstName)
+                && lastName.equals(other.lastName)
+                && address.equals(other.address);
+    }
+
 }

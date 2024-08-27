@@ -7,7 +7,7 @@ import com.solvd.laba.computer_repair_service.input.single_input.StringInput;
 
 import java.util.Scanner;
 
-public class RetrieveInputVisitor implements OperationInputVisitor {
+public final class RetrieveInputVisitor implements OperationInputVisitor {
 
     public RetrieveInputVisitor() {
 

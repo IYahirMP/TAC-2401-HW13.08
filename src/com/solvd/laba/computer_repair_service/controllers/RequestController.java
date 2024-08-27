@@ -17,12 +17,12 @@ public class RequestController {
         nextRequestId = 0;
     }
 
-    public ServiceRequest createRequest(HashMap<String, SingleInput<?>> inputs) {
+    public ServiceRequest createRequest(HashMap<String, String> inputs) {
         ServiceRequest newRequest = new ServiceRequest(
                 nextRequestId,
                 LocalDate.now(),
                 ServiceStatus.ONGOING,
-                (String) inputs.get("Description").getValue()
+                inputs.get("Description")
         );
 
         requests.put(nextRequestId, newRequest);

@@ -9,8 +9,8 @@ import com.solvd.laba.computer_repair_service.input.single_input.StringInput;
 import java.util.HashMap;
 
 public interface ValueInputVisitor {
-    Integer visitInteger(IntegerInput input);
+    String visitInteger(IntegerInput input);
     String visitString(StringInput input);
-    HashMap<String, SingleInput<?>> visitOrder(OrderInput input);
-    HashMap<String, SingleInput<?>> visitCustomer(CustomerInput input);
+    HashMap<String, SingleInput<String>> visitOrder(OrderInput input);
+    HashMap<String, SingleInput<String>> visitCustomer(CustomerInput input);
 }

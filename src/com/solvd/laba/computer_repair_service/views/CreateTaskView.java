@@ -1,20 +1,20 @@
 package com.solvd.laba.computer_repair_service.views;
 
-import com.solvd.laba.computer_repair_service.input.Input;
 import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.input.single_input.IntegerInput;
+import com.solvd.laba.computer_repair_service.input.visitors.GetValueVisitor;
 import com.solvd.laba.computer_repair_service.input.visitors.RetrieveInputVisitor;
 
 import java.util.HashMap;
 
-public class CreateTaskView extends FeedbackView{
+public final class CreateTaskView extends FeedbackView{
 
-    public CreateTaskView(HashMap<String, SingleInput<?>> inputs){
+    public CreateTaskView(HashMap<String, String> inputs){
         super(inputs);
     }
 
     public CreateTaskView(){
-        super(new HashMap<String, SingleInput<?>>());
+        super(new HashMap<>());
     }
 
     public void display(){
@@ -31,7 +31,7 @@ public class CreateTaskView extends FeedbackView{
         System.out.println("\t9) Computer makes strange sound");
     }
 
-    public HashMap<String, SingleInput<?>> getInputs(){
+    public HashMap<String, String> getInputs(){
         String[] inputName = {
                 "choice"
         };
@@ -39,8 +39,11 @@ public class CreateTaskView extends FeedbackView{
         for (String name : inputName){
             SingleInput<Integer> currentInput = new IntegerInput();
             System.out.print(name + ": ");
+
             currentInput.accept(new RetrieveInputVisitor());
-            inputs.put(name, currentInput);
+            String currentValue = currentInput.accept(new GetValueVisitor());
+
+            inputs.put(name, currentValue);
         }
 
         return inputs;

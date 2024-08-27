@@ -17,8 +17,8 @@ public class TaskController {
         nextTaskId = 0;
     }
 
-    public Task createTask(HashMap<String, SingleInput<?>> inputs){
-        int choice = (int) inputs.get("choice").getValue();
+    public Task createTask(HashMap<String, String> inputs){
+        int choice = Integer.parseInt(inputs.get("choice"));
         TypeOfTask type = switch (choice) {
             case 1 -> TypeOfTask.DIAGNOSE;
             case 2 -> TypeOfTask.MAINTENANCE;

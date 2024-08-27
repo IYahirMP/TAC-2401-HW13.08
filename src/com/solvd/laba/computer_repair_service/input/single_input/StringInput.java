@@ -4,8 +4,7 @@ import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.input.visitors.OperationInputVisitor;
 import com.solvd.laba.computer_repair_service.input.visitors.ValueInputVisitor;
 
-public class StringInput implements SingleInput<String> {
-    private String value;
+public class StringInput extends SingleInput<String> {
 
     public StringInput() {
         value = "";
@@ -19,11 +18,4 @@ public class StringInput implements SingleInput<String> {
         return visitor.visitString(this);
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

@@ -1,19 +1,18 @@
 package com.solvd.laba.computer_repair_service.views;
 
-import com.solvd.laba.computer_repair_service.input.Input;
 import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
 
 import java.util.HashMap;
 
-public class ShowOrderDetailsView extends FeedbackView{
+public final class ShowOrderDetailsView extends FeedbackView{
 
-    public ShowOrderDetailsView(HashMap<String, SingleInput<?>> inputs){
+    public ShowOrderDetailsView(HashMap<String, String> inputs){
         super(inputs);
     }
 
     public ShowOrderDetailsView(){
-        super(new HashMap<String, SingleInput<?>>());
+        super(new HashMap<>());
     }
 
     public void display(){
@@ -21,7 +20,7 @@ public class ShowOrderDetailsView extends FeedbackView{
         System.out.println((Order) displayData.get("order"));
     }
 
-    public HashMap<String, SingleInput<?>> getInputs(){
+    public HashMap<String, String> getInputs(){
 
         return inputs;
     }

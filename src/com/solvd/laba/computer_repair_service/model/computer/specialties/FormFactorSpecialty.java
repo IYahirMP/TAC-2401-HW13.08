@@ -43,4 +43,9 @@ public abstract class FormFactorSpecialty implements Maintainer{
     public abstract void checkHDD(Computer computer);
 
     public abstract void checkSSD(Computer computer);
+
+    @Override
+    public int hashCode(){
+        return formFactorName.hashCode();
+    }
 }

@@ -1,6 +1,6 @@
 package com.solvd.laba.computer_repair_service.model.computer.specialties;
 
-public class WindowsSpecialty extends OperatingSystemSpecialty{
+public final class WindowsSpecialty extends OperatingSystemSpecialty{
 
     public WindowsSpecialty() {
         operatingSystemName = "Windows";

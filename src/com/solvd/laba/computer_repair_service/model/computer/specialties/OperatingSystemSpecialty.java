@@ -32,4 +32,9 @@ public abstract class OperatingSystemSpecialty implements Maintainer{
     public abstract void restoreData();
 
     public abstract void cleanCache();
+
+    @Override
+    public int hashCode(){
+        return operatingSystemName.hashCode();
+    }
 }

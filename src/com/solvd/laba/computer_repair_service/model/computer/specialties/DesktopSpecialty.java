@@ -2,7 +2,7 @@ package com.solvd.laba.computer_repair_service.model.computer.specialties;
 
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
 
-public class DesktopSpecialty extends FormFactorSpecialty{
+public final class DesktopSpecialty extends FormFactorSpecialty{
 
     public DesktopSpecialty() {
         formFactorName = "Desktop";

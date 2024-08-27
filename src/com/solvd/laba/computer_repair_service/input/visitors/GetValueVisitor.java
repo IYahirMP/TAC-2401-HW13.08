@@ -8,20 +8,20 @@ import com.solvd.laba.computer_repair_service.input.single_input.StringInput;
 
 import java.util.HashMap;
 
-public class GetValueVisitor implements ValueInputVisitor {
-    public Integer visitInteger(IntegerInput integerInput){
-        return integerInput.getValue();
+public final class GetValueVisitor implements ValueInputVisitor {
+    public String visitInteger(IntegerInput integerInput){
+        return integerInput.getValue().toString();
     }
 
     public String visitString(StringInput stringInput){
         return stringInput.getValue();
     }
 
-    public HashMap<String, SingleInput<?>> visitOrder(OrderInput order){
+    public HashMap<String, SingleInput<String>> visitOrder(OrderInput order){
         return order.getValues();
     }
 
-    public HashMap<String, SingleInput<?>> visitCustomer(CustomerInput customer){
+    public HashMap<String, SingleInput<String>> visitCustomer(CustomerInput customer){
         return customer.getValues();
     }
 }

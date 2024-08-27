@@ -158,6 +158,32 @@ public class Technician extends Employee {
     public String toString() {
         String result = super.toString();
         result += "Technician ID: " + technicianId;
+        result += "\n";
         return result;
+    }
+
+    @Override
+    public int hashCode(){
+        int hash = 17;
+        hash = 31 * hash + super.hashCode();
+        hash = 31 * hash + technicianId;
+        hash = 31 * hash + operatingSystemSpecialty.hashCode();
+        hash = 31 * hash + formFactorSpecialty.hashCode();
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj){
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+
+        Technician other = (Technician) obj;
+        return super.equals(obj)
+                && technicianId == other.technicianId;
     }
 }
