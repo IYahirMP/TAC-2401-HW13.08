@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" strict="true" name="XMLConfigTest">
+
+<Appenders>
+    <Appender type="File" name="File" fileName="testlog.log">
+        <Layout type="PatternLayout">
+            <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+        </Layout>
+    </Appender>
+</Appenders>
+
+<Loggers>
+    <Logger name="com.solvd.laba.computer_repair_service.Main" level="debug" additivity="false">
+        <AppenderRef ref="File"/>
+    </Logger>
+</Loggers>
+
+</Configuration>
+

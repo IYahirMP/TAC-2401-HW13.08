@@ -1,46 +1,28 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
-import com.solvd.laba.computer_repair_service.input.Input;
 import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.input.single_input.IntegerInput;
 import com.solvd.laba.computer_repair_service.input.visitors.RetrieveInputVisitor;
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
-import com.solvd.laba.computer_repair_service.views.*;
+import com.solvd.laba.computer_repair_service.views.order.ShowOrderView;
+import com.solvd.laba.computer_repair_service.views.task.CreateTaskView;
 
 import java.util.HashMap;
 
 public class ServiceHandler {
-    private CreateCustomerView createCustomerView;
-    private CreateRequestView createRequestView;
-    private CreateTaskView createTaskView;
-    private CustomerController customerController;
-    private RequestController requestController;
-    private TaskController taskController;
-    private CreateOrderView createOrderView;
-    private OrderController orderController;
-    private ShowOrderDetailsView showOrderDetailsView;
+    private static CustomerController customerController = new CustomerController();
+    private static RequestController requestController = new RequestController();
+    private static TaskController taskController = new TaskController();
+    private static OrderController orderController = new OrderController();
 
-    private SingleInput<Integer> addMoreServices;
-    private SingleInput<Integer> serviceIsOkay;
-    private ServiceRequest currentRequest;
-    private Order currentOrder;
+    private static SingleInput<Integer> addMoreServices =  new IntegerInput();
+    private static SingleInput<Integer> serviceIsOkay =  new IntegerInput();
+    private static ServiceRequest currentRequest = null;
+    private static Order currentOrder = null;
 
     public ServiceHandler(){
-        createCustomerView = new CreateCustomerView();
-        customerController = new CustomerController();
-        requestController = new RequestController();
-        createOrderView = new CreateOrderView();
-        taskController = new TaskController();
-        createTaskView = new CreateTaskView();
-        createRequestView = new CreateRequestView();
-        orderController = new OrderController();
-        showOrderDetailsView = new ShowOrderDetailsView();
-        currentRequest = new ServiceRequest();
-
-        addMoreServices = new IntegerInput();
-        serviceIsOkay = new IntegerInput();
     }
 
     public void service(){
@@ -51,30 +33,17 @@ public class ServiceHandler {
         if (!agreeService()){
             modifyOrder();
         }
-        /*receiveComputer();
-        assignTechnicians();*/
+        receiveComputer();
+        /*assignTechnicians();*/
     }
-
-    /*receiveComputer();
-        createOrder();
-        executeRepairs();
-        informResults();
-        bill();*/
 
     public void assignTechnicians(){
 
     }
 
     public void createOrder(){
-        createOrderView.display();
-        currentOrder = orderController.createOrder(currentRequest);
-        System.out.println("Order created successfully");
-
-        HashMap<String, Object> inputs = new HashMap<>();
-        inputs.put("order", currentOrder);
-
-        showOrderDetailsView.setInputs(inputs);
-        showOrderDetailsView.display();
+        currentOrder = orderController.create(currentRequest);
+        orderController.show(currentOrder.getOrder_id());
     }
 
     public void modifyOrder(){
@@ -110,22 +79,16 @@ public class ServiceHandler {
     }
 
     public void createTask(){
-        createTaskView.display();
-        HashMap<String, String> inputs = createTaskView.getInputs();
-        Task task = taskController.createTask(inputs);
+        Task task = taskController.create();
         currentRequest.addTask(task);
     }
 
     public void createRequest(){
-        createRequestView.display();
-        HashMap<String, String> requestInputs = createRequestView.getInputs();
-        currentRequest = requestController.createRequest(requestInputs);
+        currentRequest = requestController.create();
     }
 
     public void receiveCustomer(){
-        createCustomerView.display();
-        HashMap<String, String> customerInputs = createCustomerView.getInputs();
-        customerController.createCustomer(customerInputs);
+        customerController.create();
     }
 
 }

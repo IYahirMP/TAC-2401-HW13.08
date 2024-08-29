@@ -3,21 +3,28 @@ package com.solvd.laba.computer_repair_service.controllers;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceStatus;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTask;
+import com.solvd.laba.computer_repair_service.views.task.CreateTaskView;
 
 import java.util.HashMap;
 
 public class TaskController {
     private static int nextTaskId;
     private static HashMap<Integer, Task> tasks;
+    private CreateTaskView createTaskView;
 
     static{
         tasks = new HashMap<>();
         nextTaskId = 0;
     }
 
-    public TaskController() {}
+    public TaskController() {
+    }
 
-    public Task createTask(HashMap<String, String> inputs){
+    public Task create(){
+        createTaskView = new CreateTaskView();
+        createTaskView.display();
+        HashMap<String, String> inputs = createTaskView.getInputs();
+
         int choice = Integer.parseInt(inputs.get("choice"));
         TypeOfTask type = switch (choice) {
             case 1 -> TypeOfTask.DIAGNOSE;

@@ -1,17 +1,17 @@
-package com.solvd.laba.computer_repair_service.views;
+package com.solvd.laba.computer_repair_service.views.order;
 
-import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
+import com.solvd.laba.computer_repair_service.views.FeedbackView;
 
 import java.util.HashMap;
 
-public final class ShowOrderDetailsView extends FeedbackView{
+public final class ShowOrderView extends FeedbackView {
 
-    public ShowOrderDetailsView(HashMap<String, String> inputs){
+    public ShowOrderView(HashMap<String, String> inputs){
         super(inputs);
     }
 
-    public ShowOrderDetailsView(){
+    public ShowOrderView(){
         super(new HashMap<>());
     }
 

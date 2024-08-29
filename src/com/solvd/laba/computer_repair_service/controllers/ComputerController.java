@@ -6,7 +6,7 @@ import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ComputerController {
+public class ComputerController implements Controller{
     private static int nextComputerId;
     private static int nextHardwareId;
     private static HashMap<Integer, Computer> computers;
@@ -21,7 +21,7 @@ public class ComputerController {
 
     /** Main Logic */
 
-    public Computer createComputer(){
+    public Computer create(){
         // Variable declarations
         Motherboard motherboard;
         Processor processor;
@@ -58,6 +58,22 @@ public class ComputerController {
         computers.put(nextComputerId, newComputer);
         nextComputerId++;
         return newComputer;
+    }
+
+    public void update(int id){
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void delete(int id){
+        computers.remove(id);
+    }
+
+    public void show(int id){
+        throw new UnsupportedOperationException("Not yet supported operation");
+    }
+
+    public Computer find(int id){
+        return computers.get(id);
     }
 
     private ArrayList<RAM> createRAM(){
@@ -104,6 +120,8 @@ public class ComputerController {
         return new Motherboard(Motherboard.MotherboardFormFactor.ATX);
     }
 
+    /** Getters and setters */
+
     public int getNextComputerId() {
         return nextComputerId;
     }
@@ -119,10 +137,6 @@ public class ComputerController {
     public void setNextHardwareId(int nextHardwareId) {
         this.nextHardwareId = nextHardwareId;
     }
-
-    /** Getters and setters */
-
-
 
     public HashMap<Integer, Computer> getComputers() {
         return computers;

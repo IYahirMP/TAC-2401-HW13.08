@@ -1,26 +1,13 @@
 package com.solvd.laba.computer_repair_service.model.computer.errors;
 
-public class ComputerError {
-    private String error;
+public class ComputerError extends Exception{
 
     public ComputerError(){
-        error = "";
+        super();
     }
 
     public ComputerError(String error) {
-        this.error = error;
+        super(error);
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    @Override
-    public String toString() {
-        return error;
-    }
 }

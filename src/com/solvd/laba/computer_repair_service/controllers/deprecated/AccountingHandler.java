@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AccountingHandler {
-    final private HashMap<Integer, Order> orders;
-    final private ArrayList<Invoice> invoices;
-    final private ArrayList<Payment> payments;
+    private HashMap<Integer, Order> orders;
+    private ArrayList<Invoice> invoices;
+    private ArrayList<Payment> payments;
     private int lastOrderId;
     private int lastInvoiceId;
     private int lastPaymentId;

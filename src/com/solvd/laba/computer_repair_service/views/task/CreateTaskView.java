@@ -1,13 +1,14 @@
-package com.solvd.laba.computer_repair_service.views;
+package com.solvd.laba.computer_repair_service.views.task;
 
 import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.input.single_input.IntegerInput;
 import com.solvd.laba.computer_repair_service.input.visitors.GetValueVisitor;
 import com.solvd.laba.computer_repair_service.input.visitors.RetrieveInputVisitor;
+import com.solvd.laba.computer_repair_service.views.FeedbackView;
 
 import java.util.HashMap;
 
-public final class CreateTaskView extends FeedbackView{
+public final class CreateTaskView extends FeedbackView {
 
     public CreateTaskView(HashMap<String, String> inputs){
         super(inputs);

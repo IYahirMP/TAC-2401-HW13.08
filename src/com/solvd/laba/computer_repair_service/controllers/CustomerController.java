@@ -1,32 +1,29 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
-import com.solvd.laba.computer_repair_service.input.ComplexInput;
-import com.solvd.laba.computer_repair_service.input.Input;
-import com.solvd.laba.computer_repair_service.input.SingleInput;
-import com.solvd.laba.computer_repair_service.input.complex_input.CustomerInput;
-import com.solvd.laba.computer_repair_service.input.visitors.GetValueVisitor;
-import com.solvd.laba.computer_repair_service.input.visitors.ValueInputVisitor;
 import com.solvd.laba.computer_repair_service.model.people.Customer;
+import com.solvd.laba.computer_repair_service.views.customer.CreateCustomerView;
 
 import java.util.HashMap;
 
-public class CustomerController {
+public class CustomerController implements Controller{
     private static int nextCustomerId;
     private static HashMap<Integer, Customer> customers;
+    private static CreateCustomerView createCustomerView;
 
     static{
         nextCustomerId = 0;
         customers = new HashMap<>();
+        createCustomerView = new CreateCustomerView();
     }
 
     public CustomerController() {
     }
 
-    public void createCustomer(HashMap<String, String> input){
-        Customer newCustomer;
-        GetValueVisitor getValue = new GetValueVisitor();
+    public Customer create(){
+        createCustomerView.display();
+        HashMap<String, String> input = createCustomerView.getInputs();
 
-        newCustomer = new Customer(
+        Customer newCustomer = new Customer(
                 nextCustomerId,
                 input.get("firstName"),
                 input.get("lastName"),
@@ -37,5 +34,23 @@ public class CustomerController {
 
         customers.put(nextCustomerId, newCustomer);
         nextCustomerId++;
+
+        return newCustomer;
+    }
+
+    public void delete(int id){
+        customers.remove(id);
+    }
+
+    public void update(int id){
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void show(int id){
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public Customer find(int id){
+        return customers.get(id);
     }
 }

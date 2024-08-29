@@ -1,13 +1,14 @@
-package com.solvd.laba.computer_repair_service.views;
+package com.solvd.laba.computer_repair_service.views.customer;
 
 import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.input.single_input.StringInput;
 import com.solvd.laba.computer_repair_service.input.visitors.GetValueVisitor;
 import com.solvd.laba.computer_repair_service.input.visitors.RetrieveInputVisitor;
+import com.solvd.laba.computer_repair_service.views.FeedbackView;
 
 import java.util.HashMap;
 
-public final class CreateCustomerView extends FeedbackView{
+public final class CreateCustomerView extends FeedbackView {
 
     public CreateCustomerView(HashMap<String, String> inputs){
         super(inputs);
