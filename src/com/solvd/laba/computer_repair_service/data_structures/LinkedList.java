@@ -182,6 +182,12 @@ public class LinkedList<T> implements Iterable<T>{
         throw new NoSuchElementException("Element not found");
     }
 
+    public void clear(){
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new LinkedListIterator();
