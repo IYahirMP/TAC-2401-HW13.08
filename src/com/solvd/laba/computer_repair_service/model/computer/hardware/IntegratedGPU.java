@@ -1,5 +1,7 @@
 package com.solvd.laba.computer_repair_service.model.computer.hardware;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
+
 import java.util.ArrayList;
 
 public class IntegratedGPU extends GraphicalUnit {
@@ -11,7 +13,7 @@ public class IntegratedGPU extends GraphicalUnit {
         this.sharesMemory = false;
     }
 
-    public IntegratedGPU(int vram, float coreClock, ComputerInterface interfaceType, ArrayList<ComputerInterface> outputPorts, boolean sharesMemory) {
+    public IntegratedGPU(int vram, float coreClock, ComputerInterface interfaceType, LinkedList<ComputerInterface> outputPorts, boolean sharesMemory) {
         super(vram, coreClock, interfaceType, outputPorts);
         this.sharesMemory = sharesMemory;
     }

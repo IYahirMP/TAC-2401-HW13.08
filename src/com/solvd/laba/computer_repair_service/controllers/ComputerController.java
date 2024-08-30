@@ -1,18 +1,18 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
 import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ComputerController implements Controller{
     private static int nextComputerId;
     private static int nextHardwareId;
-    private static HashMap<Integer, Computer> computers;
+    private static LinkedList<Computer> computers;
 
     static{
-        computers = new HashMap<>();
+        computers = new LinkedList<>();
         nextComputerId = 0;
         nextHardwareId = 0;
     }
@@ -25,7 +25,7 @@ public class ComputerController implements Controller{
         // Variable declarations
         Motherboard motherboard;
         Processor processor;
-        ArrayList<RAM> rams;
+        LinkedList<RAM> rams;
         DiscreteGPU discreteGPU;
         Computer newComputer;
 
@@ -55,7 +55,7 @@ public class ComputerController implements Controller{
                 rams,
                 Computer.FormFactor.LAPTOP);
 
-        computers.put(nextComputerId, newComputer);
+        computers.add(newComputer);
         nextComputerId++;
         return newComputer;
     }
@@ -76,8 +76,8 @@ public class ComputerController implements Controller{
         return computers.get(id);
     }
 
-    private ArrayList<RAM> createRAM(){
-        ArrayList<RAM> rams = new ArrayList<RAM>();
+    private LinkedList<RAM> createRAM(){
+        LinkedList<RAM> rams = new LinkedList<>();
         rams.add(new RAM(16384, 2666, 2133, 2400));
         rams.add(new RAM(16384, 2666, 2133, 2400));
 
@@ -88,14 +88,14 @@ public class ComputerController implements Controller{
 
         // Variable initialization
         ComputerInterface gpuInterface;
-        ArrayList<ComputerInterface> outputPorts;
+        LinkedList<ComputerInterface> outputPorts;
         DiscreteGPU discreteGPU;
 
         // Creation of GPU 's PCIE interface
         gpuInterface = ComputerInterface.createPCIE();
 
         // Creation of GPU output ports
-        outputPorts = new ArrayList<ComputerInterface>();
+        outputPorts = new LinkedList<>();
         outputPorts.add(ComputerInterface.createHDMI());
         outputPorts.add(ComputerInterface.createDP());
 
@@ -138,11 +138,11 @@ public class ComputerController implements Controller{
         this.nextHardwareId = nextHardwareId;
     }
 
-    public HashMap<Integer, Computer> getComputers() {
+    public LinkedList<Computer> getComputers() {
         return computers;
     }
 
-    public void setComputers(HashMap<Integer, Computer> computers) {
+    public void setComputers(LinkedList<Computer> computers) {
         this.computers = computers;
     }
 }

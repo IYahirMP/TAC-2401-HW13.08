@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.model.service_management;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
 import com.solvd.laba.computer_repair_service.model.people.Technician;
 
@@ -30,7 +31,7 @@ public class ServiceRequest {
     private String description;
 
     /** List of tasks to do */
-    private ArrayList<Task> tasks;
+    private LinkedList<Task> tasks;
 
     private Order order;
 
@@ -44,7 +45,7 @@ public class ServiceRequest {
         this.requestDate = LocalDate.now();
         this.status = ServiceStatus.ON_HOLD;
         this.description = "";
-        this.tasks = new ArrayList<>();
+        this.tasks = new LinkedList<>();
     }
 
     /**
@@ -61,7 +62,7 @@ public class ServiceRequest {
         this.requestDate = requestDate;
         this.status = status;
         this.description = description;
-        this.tasks = new ArrayList<>();
+        this.tasks = new LinkedList<>();
     }
 
     /**
@@ -74,7 +75,7 @@ public class ServiceRequest {
      * @param tasks The ServiceTasks to do.
      */
     public ServiceRequest(int requestId, LocalDate requestDate,
-                          ServiceStatus status, String description, ArrayList<Task> tasks) {
+                          ServiceStatus status, String description, LinkedList<Task> tasks) {
         this.requestId = requestId;
         this.requestDate = requestDate;
         this.status = status;
@@ -94,7 +95,7 @@ public class ServiceRequest {
         this.requestDate = LocalDate.now();
         this.status = status;
         this.description = description;
-        this.tasks = new ArrayList<>();
+        this.tasks = new LinkedList<>();
     }
 
     // Logic
@@ -202,11 +203,11 @@ public class ServiceRequest {
         this.description = description;
     }
 
-    public ArrayList<Task> getTasks() {
+    public LinkedList<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(ArrayList<Task> tasks) {
+    public void setTasks(LinkedList<Task> tasks) {
         this.tasks = tasks;
     }
 

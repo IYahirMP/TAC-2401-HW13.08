@@ -1,19 +1,21 @@
 package com.solvd.laba.computer_repair_service.model.computer.hardware;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
+
 import java.util.ArrayList;
 
 public class GraphicalUnit {
     private int vram;
     private float coreClock;
     private ComputerInterface interfaceType;
-    private ArrayList<ComputerInterface> outputPorts;
+    private LinkedList<ComputerInterface> outputPorts;
 
     // Constructors
     public GraphicalUnit() {
         // Default constructor can initialize values here
     }
 
-    public GraphicalUnit(int vram, float coreClock, ComputerInterface interfaceType, ArrayList<ComputerInterface> outputPorts) {
+    public GraphicalUnit(int vram, float coreClock, ComputerInterface interfaceType, LinkedList<ComputerInterface> outputPorts) {
         this.vram = vram;
         this.coreClock = coreClock;
         this.interfaceType = interfaceType;
@@ -45,11 +47,11 @@ public class GraphicalUnit {
         this.interfaceType = interfaceType;
     }
 
-    public ArrayList<ComputerInterface> getOutputPorts() {
+    public LinkedList<ComputerInterface> getOutputPorts() {
         return outputPorts;
     }
 
-    public void setOutputPorts(ArrayList<ComputerInterface> outputPorts) {
+    public void setOutputPorts(LinkedList<ComputerInterface> outputPorts) {
         this.outputPorts = outputPorts;
     }
 

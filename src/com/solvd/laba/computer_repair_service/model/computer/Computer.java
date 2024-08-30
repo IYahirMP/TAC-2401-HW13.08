@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.model.computer;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
 import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class Computer {
     private Processor processor;
     private DiscreteGPU discreteGPU;
     private IntegratedGPU internalGPU;
-    private ArrayList<RAM> ram;
+    private LinkedList<RAM> ram;
 
     /**
      * The default constructor for Computer.
@@ -74,7 +75,7 @@ public class Computer {
      */
     public Computer(int computerId, String serialNumber, String brand, String model,
                     int year, boolean isCustomAssembled, Motherboard motherboard, Processor processor,
-                    DiscreteGPU discreteGPU, IntegratedGPU internalGPU, ArrayList<RAM> ram,
+                    DiscreteGPU discreteGPU, IntegratedGPU internalGPU, LinkedList<RAM> ram,
                     FormFactor formFactor) {
         this.computerId = computerId;
         this.serialNumber = serialNumber != null ? serialNumber : "";  // Set default if null
@@ -234,11 +235,11 @@ public class Computer {
         this.internalGPU = internalGPU;
     }
 
-    public ArrayList<RAM> getRam() {
+    public LinkedList<RAM> getRam() {
         return ram;
     }
 
-    public void setRam(ArrayList<RAM> ram) {
+    public void setRam(LinkedList<RAM> ram) {
         this.ram = ram;
     }
 

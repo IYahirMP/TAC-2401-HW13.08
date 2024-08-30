@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
 import com.solvd.laba.computer_repair_service.input.Input;
 import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
@@ -11,12 +12,12 @@ import java.util.HashMap;
 
 public class RequestController implements Controller{
     private static int nextRequestId;
-    private static HashMap<Integer, ServiceRequest> requests;
+    private static LinkedList<ServiceRequest> requests;
     private static CreateRequestView createRequestView;
 
 
     static{
-        requests = new HashMap<>();
+        requests = new LinkedList<>();
         nextRequestId = 0;
         createRequestView = new CreateRequestView();
     }
@@ -36,7 +37,7 @@ public class RequestController implements Controller{
                     inputs.get("Description")
             );
 
-            requests.put(nextRequestId, newRequest);
+            requests.add(newRequest);
             nextRequestId++;
             return newRequest;
 

@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.model.accounting;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
 import com.solvd.laba.computer_repair_service.model.people.Customer;
 import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTask;
 
@@ -10,18 +11,18 @@ public class Order {
     private int order_id;
     private double total;
     private OrderState state;
-    private ArrayList<OrderItem> items;
+    private LinkedList<OrderItem> items;
     private Invoice invoice;
 
     public Order(int order_id, double total, OrderState state) {
         this.order_id = order_id;
         this.total = total;
         this.state = state;
-        this.items = new ArrayList<>();
+        this.items = new LinkedList<>();
         this.invoice = new Invoice();
     }
 
-    public Order(int order_id, double total, OrderState state, ArrayList<OrderItem> items) {
+    public Order(int order_id, double total, OrderState state, LinkedList<OrderItem> items) {
         this.order_id = order_id;
         this.total = total;
         this.state = state;
@@ -29,7 +30,7 @@ public class Order {
         this.invoice = new Invoice();
     }
 
-    public Order(int order_id, double total, OrderState state, ArrayList<OrderItem> items, Invoice invoice) {
+    public Order(int order_id, double total, OrderState state, LinkedList<OrderItem> items, Invoice invoice) {
         this.order_id = order_id;
         this.total = total;
         this.state = state;
@@ -87,11 +88,11 @@ public class Order {
         this.invoice = invoice;
     }
 
-    public ArrayList<OrderItem> getItems() {
+    public LinkedList<OrderItem> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<OrderItem> items) {
+    public void setItems(LinkedList<OrderItem> items) {
         this.items = items;
     }
 

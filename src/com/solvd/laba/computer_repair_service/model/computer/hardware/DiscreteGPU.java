@@ -1,5 +1,7 @@
 package com.solvd.laba.computer_repair_service.model.computer.hardware;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
+
 import java.util.ArrayList;
 
 public class DiscreteGPU extends GraphicalUnit {
@@ -11,7 +13,7 @@ public class DiscreteGPU extends GraphicalUnit {
         this.powerConnectors = 0;
     }
 
-    public DiscreteGPU(int vram, float coreClock, ComputerInterface interfaceType, ArrayList<ComputerInterface> outputPorts, int powerConnectors) {
+    public DiscreteGPU(int vram, float coreClock, ComputerInterface interfaceType, LinkedList<ComputerInterface> outputPorts, int powerConnectors) {
         super(vram, coreClock, interfaceType, outputPorts);
         this.powerConnectors = powerConnectors;
     }

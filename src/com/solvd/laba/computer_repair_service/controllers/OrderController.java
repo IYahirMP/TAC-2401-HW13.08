@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
 import com.solvd.laba.computer_repair_service.model.accounting.OrderItem;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
@@ -29,8 +30,8 @@ public class OrderController{
         createOrderView.display();
 
         Order newOrder;
-        ArrayList<OrderItem> items = new ArrayList<>();
-        ArrayList<Task> tasks = request.getTasks();
+        LinkedList<OrderItem> items = new LinkedList<>();
+        LinkedList<Task> tasks = request.getTasks();
         double total = 0.0;
 
         for(Task task: tasks){

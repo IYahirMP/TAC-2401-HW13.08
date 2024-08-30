@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.data_structures;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 class Node<T>{
@@ -15,7 +16,7 @@ class Node<T>{
 
 }
 
-public class LinkedList<T>{
+public class LinkedList<T> implements Iterable<T>{
     private Node<T> head;
     private Node<T> tail;
     private int size = 0;
@@ -179,5 +180,29 @@ public class LinkedList<T>{
         }
 
         throw new NoSuchElementException("Element not found");
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<T> {
+        private Node<T> current = head;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            T data = current.data;
+            current = current.next;
+            return data;
+        }
     }
 }

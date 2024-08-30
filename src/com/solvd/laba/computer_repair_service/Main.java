@@ -18,8 +18,8 @@ public class Main {
         context.setConfigLocation(file.toURI());*/
 
         //logger.debug("Debug info");
-        //ServiceHandler service = new ServiceHandler();
-        //service.service();
+        ServiceHandler service = new ServiceHandler();
+        service.service();
         //LinkedListTest.test();
     }
 }
