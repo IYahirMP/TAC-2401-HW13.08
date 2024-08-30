@@ -25,19 +25,25 @@ public class RequestController implements Controller{
 
     public ServiceRequest create() {
         createRequestView.display();
-        HashMap<String, String> inputs = createRequestView.getInputs();
 
-        ServiceRequest newRequest = new ServiceRequest(
-                nextRequestId,
-                LocalDate.now(),
-                ServiceStatus.ONGOING,
-                inputs.get("Description")
-        );
+        try{
+            HashMap<String, String> inputs = createRequestView.getInputs();
 
-        requests.put(nextRequestId, newRequest);
-        nextRequestId++;
+            ServiceRequest newRequest = new ServiceRequest(
+                    nextRequestId,
+                    LocalDate.now(),
+                    ServiceStatus.ONGOING,
+                    inputs.get("Description")
+            );
 
-        return newRequest;
+            requests.put(nextRequestId, newRequest);
+            nextRequestId++;
+            return newRequest;
+
+        } catch(Exception E){
+            E.printStackTrace();
+            return null;
+        }
     }
 
     public ServiceRequest find(int id) {

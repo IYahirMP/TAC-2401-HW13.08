@@ -7,11 +7,20 @@
             <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
         </Layout>
     </Appender>
+    <Appender type="File" name="RequestControllerLog" fileName="logs/controllers/requestController.log">
+        <Layout type="PatternLayout">
+            <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+        </Layout>
+    </Appender>
 </Appenders>
 
 <Loggers>
     <Logger name="com.solvd.laba.computer_repair_service.Main" level="debug" additivity="false">
         <AppenderRef ref="File"/>
+    </Logger>
+    <Logger name="com.solv.laba.computer_repair_service.controllers.RequestController"
+            level="debug" additivity="true">
+        <AppenderRef ref="RequestControllerLog"/>
     </Logger>
 </Loggers>
 

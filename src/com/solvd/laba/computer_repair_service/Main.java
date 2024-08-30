@@ -1,12 +1,13 @@
 package com.solvd.laba.computer_repair_service;
 
 import com.solvd.laba.computer_repair_service.controllers.ServiceHandler;
+import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
+import com.solvd.laba.computer_repair_service.data_structures.LinkedListTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.LoggerContext;
 
 import java.io.File;
-
 
 public class Main {
     //private static final Logger logger = LogManager.getLogger(Main.class);
@@ -17,7 +18,8 @@ public class Main {
         context.setConfigLocation(file.toURI());*/
 
         //logger.debug("Debug info");
-        ServiceHandler service = new ServiceHandler();
-        service.service();
+        //ServiceHandler service = new ServiceHandler();
+        //service.service();
+        //LinkedListTest.test();
     }
 }
