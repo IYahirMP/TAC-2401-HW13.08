@@ -5,9 +5,17 @@ import com.solvd.laba.computer_repair_service.input.visitors.OperationInputVisit
 import com.solvd.laba.computer_repair_service.input.visitors.ValueInputVisitor;
 
 public class StringInput extends SingleInput<String> {
+    public enum TypeOfString {address, name, email, phone, largeInput, none}
+    private TypeOfString type;
 
     public StringInput() {
-        value = "";
+        super();
+        type = TypeOfString.none;
+    }
+
+    public StringInput(String name, String displayName, TypeOfString type) {
+        super(name, displayName);
+        this.type = type;
     }
 
     public void accept(OperationInputVisitor visitor){
@@ -16,6 +24,14 @@ public class StringInput extends SingleInput<String> {
 
     public String accept(ValueInputVisitor visitor){
         return visitor.visitString(this);
+    }
+
+    public TypeOfString getType() {
+        return type;
+    }
+
+    public void setType(TypeOfString type) {
+        this.type = type;
     }
 
 }

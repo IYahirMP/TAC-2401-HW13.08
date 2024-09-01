@@ -26,7 +26,7 @@ public class LinkedList<T> implements Iterable<T>{
         tail = null;
     }
 
-    private Node<T> getNode(int index){
+    private Node<T> getNode(int index) throws IndexOutOfBoundsException{
         Node<T> currentNode = head;
         if (index >= size){
             throw new IndexOutOfBoundsException("Index out of bounds");

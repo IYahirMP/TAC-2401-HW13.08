@@ -211,7 +211,12 @@ public class ServiceRequest {
         this.tasks = tasks;
     }
 
-    public void addTask(Task task) {
+    public void addTask(Task task) throws IllegalArgumentException {
+        for(Task i: this.tasks){
+            if (i.getTypeOfTask() == task.getTypeOfTask()){
+                throw new IllegalArgumentException("Task already exists");
+            }
+        }
         this.tasks.add(task);
     }
 

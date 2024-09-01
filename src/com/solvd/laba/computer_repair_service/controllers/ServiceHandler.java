@@ -69,7 +69,13 @@ public class ServiceHandler {
         System.out.println("Now please let us know which services you need.");
         boolean stop = false;
         while (!stop) {
-            createTask();
+            try {
+                createTask();
+            }catch (Exception e){
+                System.out.println("Error creating task, please try again");
+                continue;
+            }
+
             System.out.println("Do you want to add more services?");
             System.out.println("\t1) Yes");
             System.out.println("\t2) No");
@@ -80,7 +86,13 @@ public class ServiceHandler {
 
     public void createTask(){
         Task task = taskController.create();
-        currentRequest.addTask(task);
+        try {
+            currentRequest.addTask(task);
+        }catch(IllegalArgumentException e){
+            System.out.println("Error creating task: " + e.getMessage());
+            System.out.println("Please, try again.");
+            createTask();
+        }
     }
 
     public void createRequest(){
