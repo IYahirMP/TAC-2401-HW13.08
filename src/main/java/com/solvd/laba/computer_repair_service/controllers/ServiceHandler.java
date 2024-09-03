@@ -6,33 +6,41 @@ import com.solvd.laba.computer_repair_service.input.visitors.RetrieveInputVisito
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
-import com.solvd.laba.computer_repair_service.views.order.ShowOrderView;
-import com.solvd.laba.computer_repair_service.views.task.CreateTaskView;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 
 public class ServiceHandler {
-    private static CustomerController customerController = new CustomerController();
-    private static RequestController requestController = new RequestController();
-    private static TaskController taskController = new TaskController();
-    private static OrderController orderController = new OrderController();
+    private static Logger logger = LogManager.getLogger(com.solvd.laba.computer_repair_service.controllers.ServiceHandler.class);
 
-    private static SingleInput<Integer> addMoreServices =  new IntegerInput();
-    private static SingleInput<Integer> serviceIsOkay =  new IntegerInput();
-    private static ServiceRequest currentRequest = null;
-    private static Order currentOrder = null;
+    private CustomerController customerController = new CustomerController();
+    private RequestController requestController = new RequestController();
+    private TaskController taskController = new TaskController();
+    private OrderController orderController = new OrderController();
+
+    private SingleInput<Integer> addMoreServices =  new IntegerInput();
+    private SingleInput<Integer> serviceIsOkay =  new IntegerInput();
+    private ServiceRequest currentRequest = null;
+    private Order currentOrder = null;
 
     public ServiceHandler(){
     }
 
     public void service(){
+        logger.info("About to begin receiveCustomer()");
         receiveCustomer();
+        logger.info("About to begin createRequest()");
         createRequest();
+        logger.info("About to begin addServices()");
         addServices();
+        logger.info("About to begin createOrder()");
         createOrder();
         if (!agreeService()){
+            logger.info("About to begin modifyOrder()");
             modifyOrder();
         }
+        logger.info("About to begin receiveComputer()");
         receiveComputer();
         /*assignTechnicians();*/
     }

@@ -61,7 +61,7 @@ public final class RetrieveInputVisitor implements OperationInputVisitor {
                 }
             }
             case largeInput -> {
-                if (!input.matches("\\S{15,}]")) {
+                if (!input.matches("\\S{15,}")) {
                     throw new InvalidLargeInputException(
                             "Input is too short"
                     );

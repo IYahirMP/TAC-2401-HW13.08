@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.views.customer;
 
+import com.solvd.laba.computer_repair_service.Main;
 import com.solvd.laba.computer_repair_service.input.exception.*;
 import com.solvd.laba.computer_repair_service.input.single_input.StringInput;
 import com.solvd.laba.computer_repair_service.input.visitors.GetValueVisitor;
@@ -45,6 +46,7 @@ public final class CreateCustomerView extends FeedbackView {
                 try {
                     data.accept(new RetrieveInputVisitor());
                 } catch (InvalidInputException e) {
+                    Main.logger.error(e);
                     System.out.println(e.getMessage());
                     System.out.println("Please input a valid value.\n");
                     continue;
