@@ -1,11 +1,12 @@
 package com.solvd.laba.computer_repair_service.model.computer.specialties;
 
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
+import com.solvd.laba.computer_repair_service.model.computer.OperatingSystem;
 
 import java.util.ArrayList;
 
 public abstract class OperatingSystemSpecialty implements Maintainer{
-    protected String operatingSystemName;
+    protected OperatingSystem operatingSystem;
 
     public void correctiveMaintenance(Computer computer) {
 
@@ -33,8 +34,16 @@ public abstract class OperatingSystemSpecialty implements Maintainer{
 
     public abstract void cleanCache();
 
+    public OperatingSystem getOperatingSystem() {
+        return operatingSystem;
+    }
+
+    public void setOperatingSystem(OperatingSystem operatingSystem) {
+        this.operatingSystem = operatingSystem;
+    }
+
     @Override
     public int hashCode(){
-        return operatingSystemName.hashCode();
+        return operatingSystem.hashCode();
     }
 }

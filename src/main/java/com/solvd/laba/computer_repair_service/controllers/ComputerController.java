@@ -2,6 +2,8 @@ package com.solvd.laba.computer_repair_service.controllers;
 
 import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
+import com.solvd.laba.computer_repair_service.model.computer.FormFactor;
+import com.solvd.laba.computer_repair_service.model.computer.OperatingSystem;
 import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
 
 import java.util.HashMap;
@@ -51,7 +53,8 @@ public class ComputerController {
                 discreteGPU,
                 null,
                 rams,
-                Computer.FormFactor.LAPTOP);
+                FormFactor.LAPTOP,
+                OperatingSystem.WINDOWS);
 
         computers.add(newComputer);
         nextComputerId++;

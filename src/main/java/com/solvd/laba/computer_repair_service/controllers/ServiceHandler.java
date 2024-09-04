@@ -4,6 +4,8 @@ import com.solvd.laba.computer_repair_service.input.SingleInput;
 import com.solvd.laba.computer_repair_service.input.single_input.IntegerInput;
 import com.solvd.laba.computer_repair_service.input.visitors.RetrieveInputVisitor;
 import com.solvd.laba.computer_repair_service.model.accounting.Order;
+import com.solvd.laba.computer_repair_service.model.computer.Computer;
+import com.solvd.laba.computer_repair_service.model.people.Technician;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import org.apache.logging.log4j.LogManager;
@@ -12,41 +14,53 @@ import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 
 public class ServiceHandler {
-    private static Logger logger = LogManager.getLogger(com.solvd.laba.computer_repair_service.controllers.ServiceHandler.class);
+    private static Logger logger = LogManager.getLogger(
+            com.solvd.laba.computer_repair_service.controllers.ServiceHandler.class);
 
     private CustomerController customerController = new CustomerController();
     private RequestController requestController = new RequestController();
     private TaskController taskController = new TaskController();
     private OrderController orderController = new OrderController();
+    private ComputerController computerController = new ComputerController();
+    private TechnicianController technicianController = new TechnicianController();
 
     private SingleInput<Integer> addMoreServices =  new IntegerInput();
     private SingleInput<Integer> serviceIsOkay =  new IntegerInput();
     private ServiceRequest currentRequest = null;
     private Order currentOrder = null;
+    private Computer currentComputer = null;
 
     public ServiceHandler(){
     }
 
     public void service(){
-        logger.info("About to begin receiveCustomer()");
+        logger.trace("About to enter receiveCustomer()");
         receiveCustomer();
-        logger.info("About to begin createRequest()");
+        logger.trace("About to enter createRequest()");
         createRequest();
-        logger.info("About to begin addServices()");
+        logger.trace("About to enter addServices()");
         addServices();
-        logger.info("About to begin createOrder()");
+        logger.trace("About to enter createOrder()");
         createOrder();
         if (!agreeService()){
-            logger.info("About to begin modifyOrder()");
+            logger.trace("About to enter modifyOrder()");
             modifyOrder();
         }
-        logger.info("About to begin receiveComputer()");
+        logger.trace("About to enter receiveComputer()");
         receiveComputer();
-        /*assignTechnicians();*/
+        logger.trace("About to enter assignTechnicians()");
+        assignTechnicians();
     }
 
     public void assignTechnicians(){
+        Technician technician;
+        technician = technicianController.searchTechnician(currentComputer);
+        if (technician == null){
+            System.out.println("We are sorry, there are no technicians available right now.");
+            System.exit(0);
+        }
 
+        requestController.assignTasksToTechnician(technician, currentRequest);
     }
 
     public void createOrder(){
@@ -62,7 +76,9 @@ public class ServiceHandler {
     }
 
     public void receiveComputer(){
-
+        currentComputer = computerController.create();
+        System.out.println("Client's computer has been received");
+        System.out.println(currentComputer);
     }
 
     public boolean agreeService(){

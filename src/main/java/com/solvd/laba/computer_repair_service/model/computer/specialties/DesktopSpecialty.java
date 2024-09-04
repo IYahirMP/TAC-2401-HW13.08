@@ -1,11 +1,12 @@
 package com.solvd.laba.computer_repair_service.model.computer.specialties;
 
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
+import com.solvd.laba.computer_repair_service.model.computer.FormFactor;
 
 public final class DesktopSpecialty extends FormFactorSpecialty{
 
     public DesktopSpecialty() {
-        formFactorName = "Desktop";
+        formFactor = FormFactor.DESKTOP;
     }
 
     public void openCase(Computer computer) {

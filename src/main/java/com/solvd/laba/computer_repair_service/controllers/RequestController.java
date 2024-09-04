@@ -1,8 +1,10 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
 import com.solvd.laba.computer_repair_service.data_structures.LinkedList;
+import com.solvd.laba.computer_repair_service.model.people.Technician;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceStatus;
+import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import com.solvd.laba.computer_repair_service.views.request.CreateRequestView;
 
 import java.time.LocalDate;
@@ -40,6 +42,17 @@ public class RequestController {
             E.printStackTrace();
             return null;
         }
+    }
+
+    public void assignTasksToTechnician(Technician technician, ServiceRequest request){
+        LinkedList<Task> tasks = request.getTasks();
+
+        System.out.println("Assigned technician is: " + technician.getFirstName());
+        for(Task t: tasks){
+            technician.addTask(t);
+            System.out.println(technician.getFirstName() + " is now in charge of task no. " + t.getTaskId());
+        }
+        return;
     }
 
     public ServiceRequest find(int id) {

@@ -16,8 +16,6 @@ import java.util.ArrayList;
  * @author Ivan Mojica
  */
 public class Computer {
-    /** Computer form factors */
-    public enum FormFactor {DESKTOP, ALL_IN_ONE, LAPTOP}
 
     /** Holds the computer's id for the repair service */
     private int computerId;
@@ -39,6 +37,9 @@ public class Computer {
 
     /** Holds the computer's form factor */
     private FormFactor formFactor;
+
+    /** Holds the computer's operating system */
+    private OperatingSystem operatingSystem;
 
     private Motherboard motherboard;
     private Processor processor;
@@ -76,7 +77,7 @@ public class Computer {
     public Computer(int computerId, String serialNumber, String brand, String model,
                     int year, boolean isCustomAssembled, Motherboard motherboard, Processor processor,
                     DiscreteGPU discreteGPU, IntegratedGPU internalGPU, LinkedList<RAM> ram,
-                    FormFactor formFactor) {
+                    FormFactor formFactor, OperatingSystem operatingSystem) {
         this.computerId = computerId;
         this.serialNumber = serialNumber != null ? serialNumber : "";  // Set default if null
         this.brand = brand != null ? brand : "";                     // Set default if null
@@ -89,6 +90,7 @@ public class Computer {
         this.internalGPU = internalGPU;
         this.ram = ram;
         this.formFactor = formFactor;
+        this.operatingSystem = operatingSystem;
     }
 
     /**
@@ -243,6 +245,22 @@ public class Computer {
         this.ram = ram;
     }
 
+    public FormFactor getFormFactor() {
+        return formFactor;
+    }
+
+    public void setFormFactor(FormFactor formFactor) {
+        this.formFactor = formFactor;
+    }
+
+    public OperatingSystem getOperatingSystem() {
+        return operatingSystem;
+    }
+
+    public void setOperatingSystem(OperatingSystem operatingSystem) {
+        this.operatingSystem = operatingSystem;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -252,6 +270,8 @@ public class Computer {
         builder.append("Model: ").append(model).append("\n");
         builder.append("Year: ").append(year).append("\n");
         builder.append("Custom Assembled: ").append(isCustomAssembled).append("\n");
+        builder.append("Form factor: ").append(formFactor.toString()).append("\n");
+        builder.append("Operating system: ").append(operatingSystem).append("\n");
         builder.append(motherboard == null ? "N/A" : motherboard.toString()).append("\n");
         builder.append(processor == null ? "N/A" : processor.toString()).append("\n");
         builder.append(discreteGPU == null ? "N/A" : discreteGPU.toString()).append("\n");

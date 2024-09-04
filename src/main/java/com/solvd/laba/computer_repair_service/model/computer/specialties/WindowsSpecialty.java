@@ -1,9 +1,11 @@
 package com.solvd.laba.computer_repair_service.model.computer.specialties;
 
+import com.solvd.laba.computer_repair_service.model.computer.OperatingSystem;
+
 public final class WindowsSpecialty extends OperatingSystemSpecialty{
 
     public WindowsSpecialty() {
-        operatingSystemName = "Windows";
+        operatingSystem = OperatingSystem.WINDOWS;
     }
 
     public void repairBoot(){};

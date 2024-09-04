@@ -1,10 +1,11 @@
 package com.solvd.laba.computer_repair_service.model.computer.specialties;
 
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
+import com.solvd.laba.computer_repair_service.model.computer.FormFactor;
 
 public abstract class FormFactorSpecialty implements Maintainer{
 
-    protected String formFactorName;
+    protected FormFactor formFactor;
 
     public void correctiveMaintenance(Computer computer) {
 
@@ -44,8 +45,16 @@ public abstract class FormFactorSpecialty implements Maintainer{
 
     public abstract void checkSSD(Computer computer);
 
+    public FormFactor getFormFactor() {
+        return formFactor;
+    }
+
+    public void setFormFactor(FormFactor formFactor) {
+        this.formFactor = formFactor;
+    }
+
     @Override
     public int hashCode(){
-        return formFactorName.hashCode();
+        return formFactor.hashCode();
     }
 }

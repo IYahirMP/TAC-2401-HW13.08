@@ -1,5 +1,8 @@
 package com.solvd.laba.computer_repair_service.controllers;
 
+import com.solvd.laba.computer_repair_service.model.computer.Computer;
+import com.solvd.laba.computer_repair_service.model.computer.FormFactor;
+import com.solvd.laba.computer_repair_service.model.computer.OperatingSystem;
 import com.solvd.laba.computer_repair_service.model.computer.specialties.*;
 import com.solvd.laba.computer_repair_service.model.people.Employee;
 import com.solvd.laba.computer_repair_service.model.people.Technician;
@@ -77,6 +80,27 @@ public class TechnicianController {
     public TechnicianController() {}
 
     // Main Logic starts here
+
+    public Technician searchTechnician(Computer computer){
+        //Retrieves computer features
+        FormFactor computerFormFactor = computer.getFormFactor();
+        OperatingSystem computerOperatingSystem = computer.getOperatingSystem();
+
+        //Technicians hashmap traversal
+        for(Technician technician: technicians.values()){
+            //Retrieve technician specialty
+            OperatingSystem OSSpecialty = technician.getOperatingSystemSpecialty().getOperatingSystem();
+            FormFactor FFSpecialty = technician.getFormFactorSpecialty().getFormFactor();
+
+            //If both specialties match computer features, return technician
+            if (OSSpecialty.equals(computerOperatingSystem)
+                && FFSpecialty.equals(computerFormFactor)){
+                return technician;
+            }
+        }
+
+        return null;
+    }
 
     protected Technician createTechnician(){
         Technician newTechnician;

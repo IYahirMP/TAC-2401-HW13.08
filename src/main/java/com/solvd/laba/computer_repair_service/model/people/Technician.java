@@ -49,7 +49,8 @@ public class Technician extends Employee {
      * @param technicianId The new Technician's id
      */
     public Technician (String firstName, String lastName,
-                       String address, String email, String phoneNumber, int employeeId ,int technicianId) {
+                       String address, String email, String phoneNumber,
+                       int employeeId ,int technicianId) {
         super(firstName, lastName, address, email, phoneNumber, employeeId, Position.Technician);
         this.technicianId = technicianId;
     }
@@ -67,6 +68,7 @@ public class Technician extends Employee {
         this.technicianId = technicianId;
         this.operatingSystemSpecialty = osSpecialty;
         this.formFactorSpecialty = formFactorSpecialty;
+        this.taskQueue = new PriorityQueue<>();
     }
 
     /**
@@ -153,6 +155,29 @@ public class Technician extends Employee {
 
     }
 
+    public OperatingSystemSpecialty getOperatingSystemSpecialty() {
+        return operatingSystemSpecialty;
+    }
+
+    public void setOperatingSystemSpecialty(OperatingSystemSpecialty operatingSystemSpecialty) {
+        this.operatingSystemSpecialty = operatingSystemSpecialty;
+    }
+
+    public FormFactorSpecialty getFormFactorSpecialty() {
+        return formFactorSpecialty;
+    }
+
+    public void setFormFactorSpecialty(FormFactorSpecialty formFactorSpecialty) {
+        this.formFactorSpecialty = formFactorSpecialty;
+    }
+
+    public PriorityQueue<Task> getTaskQueue() {
+        return taskQueue;
+    }
+
+    public void setTaskQueue(PriorityQueue<Task> taskQueue) {
+        this.taskQueue = taskQueue;
+    }
 
     @Override
     public String toString() {
