@@ -34,30 +34,7 @@ public final class CreateCustomerView extends FeedbackView {
                 new StringInput("phoneNumber", "Phone number", TypeOfString.phone),
         };
 
-        for (StringInput data : stringInputs){
-            boolean inputIsCorrect = false;
-            String inputName = data.getName();
-            String inputDisplayName = data.getDisplayName();
-            TypeOfString inputType = data.getType();
-            String currentValue = "";
-
-            while (!inputIsCorrect) {
-                System.out.print( inputDisplayName + ": ");
-                try {
-                    data.accept(new RetrieveInputVisitor());
-                } catch (InvalidInputException e) {
-                    Main.logger.error(e);
-                    System.out.println(e.getMessage());
-                    System.out.println("Please input a valid value.\n");
-                    continue;
-                }
-
-                inputIsCorrect = true;
-                currentValue = data.accept(new GetValueVisitor());
-            }
-
-            inputs.put(inputName, currentValue);
-        }
+        processInputs(stringInputs);
 
         return inputs;
     }
