@@ -50,6 +50,20 @@ public class ServiceHandler {
         receiveComputer();
         logger.trace("About to enter assignTechnicians()");
         assignTechnicians();
+        performTasks();
+    }
+
+    public void performTasks(){
+        //To be implemented
+        //ServiceRequest has a list of tasks
+        //There is a list of technicians
+        //There is a computer
+        //A technician is assigned based on the computer type
+        //The technician gets assigned to the tasks of the current request
+        //------------------------------------------------------------------
+        //The technician performs, in order, the tasks OF the current request
+        requestController.performTasks(currentRequest);
+
     }
 
     public void assignTechnicians(){
@@ -112,6 +126,7 @@ public class ServiceHandler {
         Task task = taskController.create();
         try {
             currentRequest.addTask(task);
+            task.setRequest(currentRequest);
         }catch(IllegalArgumentException e){
             System.out.println("Error creating task: " + e.getMessage());
             System.out.println("Please, try again.");

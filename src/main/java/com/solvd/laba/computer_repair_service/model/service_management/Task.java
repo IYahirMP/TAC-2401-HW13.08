@@ -2,6 +2,7 @@ package com.solvd.laba.computer_repair_service.model.service_management;
 
 import com.solvd.laba.computer_repair_service.model.computer.Computer;
 import com.solvd.laba.computer_repair_service.model.computer.ComputerProduct;
+import com.solvd.laba.computer_repair_service.model.people.Technician;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,11 @@ public class Task implements Comparable<Task>{
     /** Holds the priority of the task. Higher values mean higher priority*/
     private int priority;
 
+    private ServiceRequest request;
+
     private TypeOfTask typeOfTask;
+
+    private Technician assignedTechnician;
 
     private ArrayList<ComputerProduct> products;
 
@@ -195,6 +200,30 @@ public class Task implements Comparable<Task>{
         this.typeOfTask = typeOfTask;
     }
 
+    public Technician getAssignedTechnician() {
+        return assignedTechnician;
+    }
+
+    public void setAssignedTechnician(Technician assignedTechnician) {
+        this.assignedTechnician = assignedTechnician;
+    }
+
+    public Computer getComputer() {
+        return computer;
+    }
+
+    public void setComputer(Computer computer) {
+        this.computer = computer;
+    }
+
+    public ServiceRequest getRequest() {
+        return request;
+    }
+
+    public void setRequest(ServiceRequest request) {
+        this.request = request;
+    }
+
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -209,8 +238,31 @@ public class Task implements Comparable<Task>{
 
     @Override
     public int compareTo(Task task) {
-        //Highest priority comes first
-        return -Integer.compare(this.priority, task.priority);
+
+        if (task == null){
+            throw new NullPointerException("Can't compare null tasks");
         }
+        //Highest priority comes first
+
+        boolean isOlderRequest = this.request.getRequestId() < task.getRequest().getRequestId();
+        boolean isSameRequest = this.request.getRequestId() == task.getRequest().getRequestId();
+        boolean isHigherPriority = this.priority > task.getPriority();
+        boolean isSamePriority = this.priority == task.getPriority();
+
+        if (isSameRequest) {
+            if (isSamePriority) {
+                return 0;
+            }
+            if (isHigherPriority){
+                return -1;
+            }
+            return 1;
+        }
+
+        if (isOlderRequest) {
+            return -1;
+        }
+        return 1;
+    }
 
 }

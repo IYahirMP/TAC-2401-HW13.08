@@ -44,15 +44,31 @@ public class RequestController {
         }
     }
 
+    public void performTasks(ServiceRequest request){
+        LinkedList<Task> tasks = request.getTasks();
+        Technician technician = tasks.get(0).getAssignedTechnician();
+        for(int i = 0; i < tasks.size(); i++){
+            Task nextTask = technician.getNextTask();
+            int taskRequestId = nextTask.getRequest().getRequestId();
+
+            if (taskRequestId == request.getRequestId()){
+                technician.performNextTask();
+                continue;
+            }
+
+            break;
+        }
+    }
+
     public void assignTasksToTechnician(Technician technician, ServiceRequest request){
         LinkedList<Task> tasks = request.getTasks();
 
         System.out.println("Assigned technician is: " + technician.getFirstName());
         for(Task t: tasks){
+            t.setAssignedTechnician(technician);
             technician.addTask(t);
             System.out.println(technician.getFirstName() + " is now in charge of task no. " + t.getTaskId());
         }
-        return;
     }
 
     public ServiceRequest find(int id) {

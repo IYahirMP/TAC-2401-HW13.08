@@ -113,46 +113,48 @@ public class Technician extends Employee {
             case TypeOfTask.MAINTENANCE -> maintain();
             case TypeOfTask.REPAIR -> repair();
         }
+
+        taskQueue.poll();
     }
 
     public void diagnose(){
-
+        System.out.println("Computer has been diagnosed");
     }
 
     public void fixBattery(){
-
+        System.out.println("Computer battery fixed");
     }
 
     public void fixMouse(){
-
+        System.out.println("Computer mouse fixed");
     }
 
     public void fixBoot(){
-
+        System.out.println("Computer boot fixed");
     }
 
     public void fixOverHeat(){
-
+        System.out.println("Computer overheat fixed");
     }
 
     public void fixBadScreen(){
-
+        System.out.println("Computer bad screen fixed");
     }
 
     public void fixKeyboard(){
-
+        System.out.println("Computer keyboard fixed");
     }
 
     public void fixStrangeSound(){
-
+        System.out.println("Computer strange sound fixed");
     }
 
     public void maintain(){
-
+        System.out.println("Computer maintenance done");
     }
 
     public void repair(){
-
+        System.out.println("Computer repaired");
     }
 
     public OperatingSystemSpecialty getOperatingSystemSpecialty() {
