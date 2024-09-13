@@ -27,11 +27,11 @@ public final class CreateCustomerView extends FeedbackView {
 
     public HashMap<String, String> getInputs(){
         StringInput[] stringInputs = {
-                new StringInput("firstName",   "First name", TypeOfString.name),
-                new StringInput("lastName",   "Last name", TypeOfString.name),
-                new StringInput("address", "Address", TypeOfString.address),
-                new StringInput("email", "Email", TypeOfString.email),
-                new StringInput("phoneNumber", "Phone number", TypeOfString.phone),
+                new StringInput("firstName",   "First name", TypeOfString.NAME),
+                new StringInput("lastName",   "Last name", TypeOfString.NAME),
+                new StringInput("address", "Address", TypeOfString.ADDRESS),
+                new StringInput("email", "Email", TypeOfString.EMAIL),
+                new StringInput("phoneNumber", "Phone number", TypeOfString.PHONE),
         };
 
         processInputs(stringInputs);

@@ -8,6 +8,7 @@ import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.Consumer;
 
 public class AccountingHandler {
     private HashMap<Integer, Order> orders;
@@ -54,12 +55,15 @@ public class AccountingHandler {
         return newPayment;
     }
 
-    protected void breakdownOrder(int orderId){
+    public void breakdownOrder(int orderId){
         Order order = orders.get(orderId);
 
+
         System.out.println("Breakdown of order No. " + orderId);
+
+        Consumer<OrderItem> printOrderItem = item -> System.out.println(item);
         for(OrderItem item: order.getItems()){
-            System.out.println(item);
+            printOrderItem.accept(item);
         }
     }
 

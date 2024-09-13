@@ -28,7 +28,7 @@ public final class CreateRequestView extends FeedbackView {
 
     public HashMap<String, String> getInputs(){
         StringInput[] stringInputs = {
-          new StringInput("description", "Description", TypeOfString.largeInput)
+          new StringInput("description", "Description", TypeOfString.LARGE_INPUT)
         };
 
         processInputs(stringInputs);

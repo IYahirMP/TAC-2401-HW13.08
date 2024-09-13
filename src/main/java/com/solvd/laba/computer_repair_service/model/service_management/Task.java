@@ -21,14 +21,8 @@ public class Task implements Comparable<Task>{
     /** Holds the id for the task.*/
     private int taskId;
 
-    /** Holds a description of the task.*/
-    private String description;
-
     /** Holds the status of the task, whether it has been completed, is pending or in hold*/
     private ServiceStatus status;
-
-    /** Holds the priority of the task. Higher values mean higher priority*/
-    private int priority;
 
     private ServiceRequest request;
 
@@ -47,9 +41,7 @@ public class Task implements Comparable<Task>{
      * */
     public Task() {
         this.taskId = -1;
-        this.description = "";
         this.status = ServiceStatus.PENDING;
-        this.priority = 0;
         this.typeOfTask = TypeOfTask.DIAGNOSE;
         this.computer = new Computer();
     }
@@ -64,8 +56,6 @@ public class Task implements Comparable<Task>{
         this.taskId = taskId;
         this.status = status;
         this.typeOfTask = type;
-        updateDescription();
-        updatePriority();
     }
 
     /**
@@ -79,46 +69,8 @@ public class Task implements Comparable<Task>{
         this.taskId = taskId;
         this.status = ServiceStatus.PENDING;
         this.typeOfTask = type;
-
-        updateDescription();
-        updatePriority();
     }
 
-    public void updateDescription(){
-        this.description = switch (typeOfTask) {
-            case MAINTENANCE -> "Preventive maintenance";
-            case DIAGNOSE -> "Diagnose device";
-            case REPAIR -> "Repair device";
-            case FIX_NO_SCREEN -> "Screen doesn't work.";
-            case FIX_NO_BOOT -> "Computer doesn't boot up.";
-            case FIX_BAD_KEYBOARD -> "Keyboard is working incorrectly or not working at all.";
-            case FIX_BAD_MOUSE -> "Mouse is working incorrectly or not working at all.";
-            case FIX_OVERHEAT -> "Computer is producing heating more than usual";
-            case FIX_BAD_BATTERY -> "Battery life is too short.";
-            case FIX_STRANGE_SOUND -> "Computer produces strange sounds";
-            default -> throw new IllegalArgumentException("Invalid task type");
-        };
-    }
-
-    public void updatePriority(){
-        // Diagnose is first: lv 3
-        // High risk are lv 2
-        // Functional issues are lv 1
-        // Perihperals and others are lv 0
-        this.priority = switch (typeOfTask) {
-            case DIAGNOSE -> 3;
-            case FIX_OVERHEAT,
-                 FIX_STRANGE_SOUND -> 2;
-            case FIX_NO_SCREEN,
-                 FIX_NO_BOOT,
-                 FIX_BAD_BATTERY -> 1;
-            case FIX_BAD_KEYBOARD,
-                 FIX_BAD_MOUSE,
-                 MAINTENANCE,
-                 REPAIR -> 0;
-            default -> throw new IllegalArgumentException("Invalid task type");
-        };
-    }
 
     /**
      * Retrieves the id for the task.
@@ -141,15 +93,7 @@ public class Task implements Comparable<Task>{
      * @return A brief description of the task.
      */
     public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * Sets the description of the task to the given one.
-     * @param description The new description of the task.
-     */
-    public void setDescription(String description) {
-        this.description = description;
+        return this.typeOfTask.getDescription();
     }
 
     /**
@@ -173,15 +117,7 @@ public class Task implements Comparable<Task>{
      * @return The priority of the task.
      */
     public int getPriority() {
-        return this.priority;
-    }
-
-    /**
-     * Sets the priority of the task to a new one.
-     * @param priority The new priority of the task.
-     */
-    public void setPriority(int priority) {
-        this.priority = priority;
+        return this.typeOfTask.getPriority();
     }
 
     public ArrayList<ComputerProduct> getProducts() {
@@ -228,9 +164,9 @@ public class Task implements Comparable<Task>{
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\nTask ID: " + this.taskId);
-        sb.append("\nDescription: " + this.description);
+        sb.append("\nDescription: " + this.typeOfTask.getDescription());
         sb.append("\nStatus: " + this.status);
-        sb.append("\nPriority: " + this.priority);
+        sb.append("\nPriority: " + this.typeOfTask.getPriority());
         //.append("\n------------------------------------");
 
         return sb.toString();
@@ -246,8 +182,8 @@ public class Task implements Comparable<Task>{
 
         boolean isOlderRequest = this.request.getRequestId() < task.getRequest().getRequestId();
         boolean isSameRequest = this.request.getRequestId() == task.getRequest().getRequestId();
-        boolean isHigherPriority = this.priority > task.getPriority();
-        boolean isSamePriority = this.priority == task.getPriority();
+        boolean isHigherPriority = this.getPriority() > task.getPriority();
+        boolean isSamePriority = this.getPriority() == task.getPriority();
 
         if (isSameRequest) {
             if (isSamePriority) {

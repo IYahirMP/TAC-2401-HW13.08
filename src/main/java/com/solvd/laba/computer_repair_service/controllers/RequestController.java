@@ -9,6 +9,8 @@ import com.solvd.laba.computer_repair_service.views.request.CreateRequestView;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class RequestController {
     private int nextRequestId;
@@ -46,10 +48,14 @@ public class RequestController {
 
     public void performTasks(ServiceRequest request){
         LinkedList<Task> tasks = request.getTasks();
-        Technician technician = tasks.get(0).getAssignedTechnician();
+        Supplier<Technician> assignedTechnician = () -> tasks.get(0).getAssignedTechnician();
+
+        Technician technician = assignedTechnician.get();
+        Supplier<Task> nextTask = technician::getNextTask;
+
         for(int i = 0; i < tasks.size(); i++){
-            Task nextTask = technician.getNextTask();
-            int taskRequestId = nextTask.getRequest().getRequestId();
+            Task task = nextTask.get();
+            int taskRequestId = task.getRequest().getRequestId();
 
             if (taskRequestId == request.getRequestId()){
                 technician.performNextTask();
@@ -64,11 +70,13 @@ public class RequestController {
         LinkedList<Task> tasks = request.getTasks();
 
         System.out.println("Assigned technician is: " + technician.getFirstName());
-        for(Task t: tasks){
-            t.setAssignedTechnician(technician);
-            technician.addTask(t);
-            System.out.println(technician.getFirstName() + " is now in charge of task no. " + t.getTaskId());
-        }
+        System.out.println(technician);
+        tasks.forEach(
+                t -> {
+                    t.setAssignedTechnician(technician);
+                    technician.addTask(t);
+                    System.out.println(technician.getFirstName() + " is now in charge of task no. " + t.getTaskId());
+                });
     }
 
     public ServiceRequest find(int id) {

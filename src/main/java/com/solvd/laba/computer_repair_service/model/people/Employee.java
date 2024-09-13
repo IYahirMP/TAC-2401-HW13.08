@@ -1,7 +1,19 @@
 package com.solvd.laba.computer_repair_service.model.people;
 
 public class Employee extends Person{
-    public enum Position {Technician}
+    public enum Position {
+        Technician("Expert in computer repair and maintenance.");
+
+        private String details;
+        Position(String details) {
+            this.details = details;
+        }
+
+        public String getDetails() {
+            return details;
+        }
+    }
+
     protected int employeeId;
     protected Position position;
 

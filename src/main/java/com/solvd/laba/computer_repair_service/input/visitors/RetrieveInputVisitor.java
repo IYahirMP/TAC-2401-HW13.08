@@ -30,7 +30,7 @@ public final class RetrieveInputVisitor implements OperationInputVisitor {
         Scanner sc = new Scanner(System.in);
         String input = "";
         switch(stringInput.getType()){
-            case none -> {
+            case NONE -> {
                 StringBuilder sb = new StringBuilder();
                 while(sc.hasNextLine()){
                     String line = sc.nextLine();
@@ -41,66 +41,66 @@ public final class RetrieveInputVisitor implements OperationInputVisitor {
                 }
                 input = sb.toString();
             }
-            case address -> {
+            case ADDRESS -> {
                 input = sc.nextLine();
-                if(!input.matches("\\d{1,5},[a-zA-Z ]{4,15},[a-zA-Z ]{4,25},[a-zA-Z ]{3,25}")){
+                if(!input.matches(StringInput.TypeOfString.ADDRESS.getRegex())){
                     throw new InvalidAddressException(
                             "A valid address should not contain any blank spaces.\n" +
                             "Example: 1234, StreetName, CityName, StateName");
                 }
             }
-            case name -> {
+            case NAME -> {
                 input = sc.nextLine();
-                if(!input.matches("([A-Z])([a-zA-Z ]{2,15})")){
+                if(!input.matches(StringInput.TypeOfString.NAME.getRegex())){
                     throw new InvalidNameException(
                             "A valid name should begin with uppercase letter (A-Z), be at least 3 letters and a maximum of 16.\n" +
                             "Example: Antonio");
                 }
             }
-            case phone -> {
+            case PHONE -> {
                 input = sc.nextLine();
-                if(!input.matches("[0-9]{10}")){
+                if(!input.matches(StringInput.TypeOfString.PHONE.getRegex())){
                     throw new InvalidPhoneNumberException(
                             "A valid phone should be a number containing exactly 10 digits\n"
                             + "Example: 123456789"
                     );
                 }
             }
-            case email -> {
+            case EMAIL -> {
                 input = sc.nextLine();
-                if(!input.matches("\\S+@\\S+\\.\\S+")){
+                if(!input.matches(StringInput.TypeOfString.EMAIL.getRegex())){
                     throw new InvalidEmailException(
                             "A valid email address should contain a sequence of characters similar to name@domain.com\n"
                     );
                 }
             }
-            case largeInput -> {
+            case LARGE_INPUT -> {
                 input = sc.nextLine();
-                if (!input.matches("\\S{15,}")) {
+                if (!input.matches(StringInput.TypeOfString.LARGE_INPUT.getRegex())) {
                     throw new InvalidLargeInputException(
                             "Input is too short"
                     );
                 }
             }
-            case filePath -> {
+            case FILE_PATH -> {
                 input = sc.nextLine();
-                if(!input.matches("\"{0,1}[A-Z]:([/\\\\][a-zA-Z0-9.,_-]{2,30})+.[a-zA-Z]{2,15}\"{0,1}")){
+                if(!input.matches(StringInput.TypeOfString.FILE_PATH.getRegex())){
                     throw new InvalidPathException(
                             "A path should follow the next format: <Letter>:/folder1/folder2/<more folders>/file.extension"
                     );
                 }
             }
-            case number -> {
+            case NUMBER -> {
                 input = sc.nextLine();
-                if(!input.matches("[0-9]+")){
+                if(!input.matches(StringInput.TypeOfString.NUMBER.getRegex())){
                     throw new InvalidNumberException(
                             "A valid number should only contain characters ranging from 0 to 9."
                     );
                 }
             }
-            case word -> {
+            case WORD -> {
                 input = sc.nextLine();
-                if(!input.matches("[a-zA-Z]+")){
+                if(!input.matches(StringInput.TypeOfString.WORD.getRegex())){
                     throw new InvalidWordException(
                             "A valid word should only contain alphabetic characters."
                     );

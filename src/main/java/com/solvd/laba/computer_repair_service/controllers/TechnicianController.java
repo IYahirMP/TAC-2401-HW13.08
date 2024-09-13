@@ -7,8 +7,12 @@ import com.solvd.laba.computer_repair_service.model.computer.specialties.*;
 import com.solvd.laba.computer_repair_service.model.people.Employee;
 import com.solvd.laba.computer_repair_service.model.people.Technician;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class TechnicianController {
     private enum SoftwareSpecialty {LINUX, MAC, WINDOWS}
@@ -86,17 +90,18 @@ public class TechnicianController {
         FormFactor computerFormFactor = computer.getFormFactor();
         OperatingSystem computerOperatingSystem = computer.getOperatingSystem();
 
-        //Technicians hashmap traversal
-        for(Technician technician: technicians.values()){
-            //Retrieve technician specialty
-            OperatingSystem OSSpecialty = technician.getOperatingSystemSpecialty().getOperatingSystem();
-            FormFactor FFSpecialty = technician.getFormFactorSpecialty().getFormFactor();
+        CheckEligibleTechnician tester = new CheckEligibleTechnician();
+        Predicate<Technician> isEligible = (t) -> tester.test(t, computer);
 
-            //If both specialties match computer features, return technician
-            if (OSSpecialty.equals(computerOperatingSystem)
-                && FFSpecialty.equals(computerFormFactor)){
-                return technician;
-            }
+        List<Technician> eligibleTechnicians = new ArrayList<>();
+
+        eligibleTechnicians = technicians.values()
+                .stream()
+                .filter(isEligible)
+                .toList();
+
+        if (!eligibleTechnicians.isEmpty()){
+            return eligibleTechnicians.getFirst();
         }
 
         return null;
@@ -229,5 +234,26 @@ public class TechnicianController {
 
     public void setEmployees(HashMap<Integer, Employee> employees) {
         this.employees = employees;
+    }
+
+    interface CheckTechnician{
+        boolean test(Technician t, Computer c);
+    }
+
+    static class CheckEligibleTechnician implements CheckTechnician{
+        public boolean test(Technician technician, Computer c) {
+            //Retrieves computer features
+            FormFactor computerFormFactor = c.getFormFactor();
+            OperatingSystem computerOperatingSystem = c.getOperatingSystem();
+
+            //Retrieve technician specialty
+            OperatingSystem OSSpecialty = technician.getOperatingSystemSpecialty().getOperatingSystem();
+            FormFactor FFSpecialty = technician.getFormFactorSpecialty().getFormFactor();
+
+            boolean isSameOS = OSSpecialty.equals(computerOperatingSystem);
+            boolean isSameFF = FFSpecialty.equals(computerFormFactor);
+            //If both specialties match computer features, return technician
+            return isSameOS && isSameFF;
+        }
     }
 }
