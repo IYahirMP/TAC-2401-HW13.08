@@ -5,7 +5,7 @@ import com.solvd.laba.computer_repair_service.input.visitors.OperationInputVisit
 import com.solvd.laba.computer_repair_service.input.visitors.ValueInputVisitor;
 
 public class StringInput extends SingleInput<String> {
-    public enum TypeOfString {address, name, email, phone, largeInput, none}
+    public enum TypeOfString {address, name, email, phone, largeInput, filePath, none, number, word}
     private TypeOfString type;
 
     public StringInput() {

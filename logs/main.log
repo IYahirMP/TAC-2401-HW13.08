@@ -1,0 +1,295 @@
+2024-09-03 10:02:48,854 INFO c.s.l.c.Main [main] Service handler has been created
+2024-09-03 10:05:09,075 INFO c.s.l.c.Main [main] Service handler has been created
+2024-09-03 10:58:11,814 INFO c.s.l.c.Main [main] Service handler has been created
+2024-09-03 10:58:15,346 ERROR c.s.l.c.v.c.CreateCustomerView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidNameException: A valid name should begin with uppercase letter (A-Z), be at least 3 letters and a maximum of 16.
+Example: Antonio
+2024-09-03 10:58:34,907 ERROR c.s.l.c.v.c.CreateCustomerView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidNameException: A valid name should begin with uppercase letter (A-Z), be at least 3 letters and a maximum of 16.
+Example: Antonio
+2024-09-03 10:58:44,948 ERROR c.s.l.c.v.c.CreateCustomerView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidAddressException: A valid address should not contain any blank spaces.
+Example: 1234, StreetName, CityName, StateName
+2024-09-03 11:00:11,955 ERROR c.s.l.c.v.c.CreateCustomerView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidEmailException: A valid email address should contain a sequence of characters similar to name@domain.com
+
+2024-09-03 11:00:28,380 ERROR c.s.l.c.v.c.CreateCustomerView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidPhoneNumberException: A valid phone should be a number containing exactly 10 digits
+Example: 123456789
+2024-09-03 14:03:05,320 INFO c.s.l.c.Main [main] Service handler has been created
+2024-09-03 14:03:05,323 INFO c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 14:03:05,323 INFO c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 14:03:25,371 INFO c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 14:03:25,373 INFO c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 14:09:35,238 INFO c.s.l.c.Main [main] Service handler has been created
+2024-09-03 14:09:35,241 INFO c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 14:09:35,241 INFO c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 14:10:00,505 INFO c.s.l.c.Main [main] Service handler has been created
+2024-09-03 14:10:00,510 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-03 14:10:00,510 INFO c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 14:10:00,510 INFO c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 14:10:19,737 INFO c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 14:10:19,739 INFO c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 14:10:19,747 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, StreetName, CityName, StateName
+Email: iymojica@laba.solvd.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-03 14:15:01,380 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-03 14:15:01,383 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-03 14:15:01,383 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 14:15:01,384 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 14:15:24,190 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 14:15:24,191 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 14:15:24,193 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-03 14:15:24,194 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-03 14:15:24,203 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, StreetName, CityName, StateName
+Email: iymojica.laba@solvd.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-03 14:22:48,329 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-03 14:22:48,332 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-03 14:22:48,332 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 14:22:48,332 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 14:23:09,708 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 14:23:09,709 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 14:23:09,710 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-03 14:23:09,710 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-03 14:23:09,718 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, StreetName, CityName, Statename
+Email: iymojica@laba.solvd.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-03 14:23:11,390 ERROR c.s.l.c.v.r.CreateRequestView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidLargeInputException: Input is too short
+2024-09-03 14:23:15,540 ERROR c.s.l.c.v.r.CreateRequestView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidLargeInputException: Input is too short
+2024-09-03 14:23:19,355 ERROR c.s.l.c.v.r.CreateRequestView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidLargeInputException: Input is too short
+2024-09-03 14:23:25,054 ERROR c.s.l.c.v.r.CreateRequestView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidLargeInputException: Input is too short
+2024-09-03 14:24:03,818 ERROR c.s.l.c.v.r.CreateRequestView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidLargeInputException: Input is too short
+2024-09-03 14:24:28,749 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-03 14:24:28,752 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-03 14:24:28,752 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 14:24:28,753 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 14:24:46,539 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 14:24:46,541 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 14:24:46,541 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-03 14:24:46,542 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-03 14:24:46,551 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Uvab
+Last Name: Nihua
+Address: 1234, statename, ssssss, sssss
+Email: iymojica.laba@solvd.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-03 18:42:19,420 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-03 18:42:19,423 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-03 18:42:19,424 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 18:42:19,424 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 18:42:37,564 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 18:42:37,566 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 18:42:37,567 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-03 18:42:37,568 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-03 18:42:37,576 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, StateName, CityName, StateName
+Email: iymojica.laba@solvd.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-03 22:21:39,200 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-03 22:21:39,203 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-03 22:21:39,203 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 22:21:39,203 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 22:21:55,563 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 22:21:55,573 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 22:21:55,573 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-03 22:21:55,573 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-03 22:21:55,573 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, State, PAPAPA, PAPAP
+Email: ivan@gmail.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-03 22:34:48,903 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-03 22:34:48,907 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-03 22:34:48,907 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-03 22:34:48,907 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-03 22:35:03,703 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-03 22:35:03,706 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-03 22:35:03,706 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-03 22:35:03,709 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-03 22:35:03,717 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, SDSDSDS, SDSDSD, SDSDSD
+Email: ivan@mail.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-04 09:53:48,263 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-04 09:53:48,263 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-04 09:53:48,263 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-04 09:53:48,263 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-04 09:54:01,707 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-04 09:54:01,709 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-04 09:54:01,721 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-04 09:54:01,721 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-04 09:54:01,726 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, aDASDASD, ADSASD, ASDASD
+Email: ivan@gmail.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-04 09:55:29,136 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-04 09:55:29,142 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-04 09:55:29,142 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-04 09:55:29,142 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-04 09:55:39,606 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-04 09:55:39,606 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-04 09:55:39,611 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-04 09:55:39,611 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-04 09:55:39,619 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdasdasda, asdasdasd, asdasdasd
+Email: ivan@hmail.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-04 09:56:12,212 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-04 09:56:12,217 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-04 09:56:12,217 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-04 09:56:12,217 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-04 09:56:25,977 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-04 09:56:25,979 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-04 09:56:25,979 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-04 09:56:25,979 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-04 09:56:25,989 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdoasjdlka, asldkjaskldj, sldjalsdkj
+Email: ivan@gmail.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-04 09:57:35,551 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-04 09:57:35,551 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-04 09:57:35,551 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-04 09:57:35,551 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-04 09:57:51,759 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-04 09:57:51,759 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-04 09:57:51,759 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-04 09:57:51,759 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-04 09:57:51,766 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdasdasd, asdasdasd, asdasdasd
+Email: ivan@hmail.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-06 07:15:49,511 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-06 07:15:49,513 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-06 07:15:49,513 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-06 07:15:49,513 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-06 07:15:56,499 ERROR c.s.l.c.v.FeedbackView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidAddressException: A valid address should not contain any blank spaces.
+Example: 1234, StreetName, CityName, StateName
+2024-09-06 07:16:45,428 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-06 07:16:45,428 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-06 07:16:45,439 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-06 07:16:45,439 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-06 07:16:45,445 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, SLAKSJDLASJD, ALSDKJALKSDJ, ALSDKJALDSK
+Email: ivan@laba.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-06 07:18:25,952 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-06 07:18:25,955 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-06 07:18:25,955 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-06 07:18:25,955 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-06 07:18:41,974 ERROR c.s.l.c.v.FeedbackView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidAddressException: A valid address should not contain any blank spaces.
+Example: 1234, StreetName, CityName, StateName
+2024-09-06 07:18:51,578 ERROR c.s.l.c.v.FeedbackView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidAddressException: A valid address should not contain any blank spaces.
+Example: 1234, StreetName, CityName, StateName
+2024-09-06 07:19:00,225 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-06 07:19:00,227 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-06 07:19:00,227 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-06 07:19:00,228 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-06 07:19:00,233 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdasd, asdasdas, asdasd
+Email: ivan@laba.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-06 07:19:39,824 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-06 07:19:39,826 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-06 07:19:39,826 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-06 07:19:39,826 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-06 07:19:46,694 ERROR c.s.l.c.v.FeedbackView [main] com.solvd.laba.computer_repair_service.input.exception.InvalidAddressException: A valid address should not contain any blank spaces.
+Example: 1234, StreetName, CityName, StateName
+2024-09-06 07:19:55,814 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-06 07:19:55,816 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-06 07:19:55,816 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-06 07:19:55,816 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-06 07:19:55,823 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdasd, asdasd, asdasd
+Email: ivan@laba.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-06 07:21:03,782 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-06 07:21:03,785 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-06 07:21:03,785 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-06 07:21:03,785 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-06 07:21:12,794 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-06 07:21:12,796 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-06 07:21:12,797 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-06 07:21:12,797 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-06 07:21:12,802 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdasd, asdasd, asasd
+Email: ivan@laba.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-06 23:15:24,531 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-06 23:15:24,535 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-06 23:15:24,535 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-06 23:15:24,535 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-06 23:15:35,011 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-06 23:15:35,020 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-06 23:15:35,020 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-06 23:15:35,020 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-06 23:15:35,025 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdasdasd, asdasdasd, asdasdasd
+Email: ivan@laba.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-06 23:20:32,423 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-06 23:20:32,423 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-06 23:20:32,423 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-06 23:20:32,423 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-06 23:20:44,345 TRACE c.s.l.c.c.CustomerController [main] Attempting to create new Customer object
+2024-09-06 23:20:44,345 TRACE c.s.l.c.c.CustomerController [main] New customer has been created
+2024-09-06 23:20:44,345 TRACE c.s.l.c.c.CustomerController [main] Customer added to customers list
+2024-09-06 23:20:44,345 TRACE c.s.l.c.c.CustomerController [main] Next customer id is 1
+2024-09-06 23:20:44,351 TRACE c.s.l.c.c.CustomerController [main] Exit with(First Name: Ivan
+Last Name: Mojica
+Address: 1234, asdasd, asdasd, asdasd
+Email: ivan@laba.com
+Phone Number: 1231231231
+Customer ID: 0
+)
+2024-09-10 10:08:07,217 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-10 10:08:07,220 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-10 10:08:07,220 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-10 10:08:07,221 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
+2024-09-10 10:58:13,565 TRACE c.s.l.c.Main [main] Service handler has been created
+2024-09-10 10:58:13,568 TRACE c.s.l.c.c.CustomerController [main] Enter
+2024-09-10 10:58:13,568 TRACE c.s.l.c.c.CustomerController [main] Displaying customer view
+2024-09-10 10:58:13,568 TRACE c.s.l.c.c.CustomerController [main] Attempting to retrieve inputs.
