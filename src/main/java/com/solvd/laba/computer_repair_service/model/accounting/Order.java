@@ -38,24 +38,6 @@ public class Order {
         this.invoice = invoice;
     }
 
-    public static double getServiceCost(TypeOfTask service){
-        double cost = 0.0;
-        cost = switch (service) {
-            case TypeOfTask.DIAGNOSE -> 100;
-            case TypeOfTask.MAINTENANCE -> 200;
-            case TypeOfTask.FIX_NO_SCREEN -> 200;
-            case TypeOfTask.FIX_NO_BOOT -> 200;
-            case TypeOfTask.FIX_BAD_KEYBOARD -> 100;
-            case TypeOfTask.FIX_BAD_MOUSE -> 100;
-            case TypeOfTask.FIX_BAD_BATTERY -> 100;
-            case TypeOfTask.FIX_OVERHEAT -> 200;
-            case TypeOfTask.FIX_STRANGE_SOUND -> 200;
-            default -> {throw new IllegalArgumentException("Invalid option");}
-        };
-
-        return cost;
-    }
-
     public int getOrder_id() {
         return order_id;
     }

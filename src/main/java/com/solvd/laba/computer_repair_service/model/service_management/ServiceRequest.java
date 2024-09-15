@@ -6,6 +6,7 @@ import com.solvd.laba.computer_repair_service.model.people.Technician;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.function.BooleanSupplier;
 
 /**
  * The class ServiceRequest represents a service request of the computer
@@ -212,8 +213,11 @@ public class ServiceRequest {
     }
 
     public void addTask(Task task) throws IllegalArgumentException {
+
         for(Task i: this.tasks){
-            if (i.getTypeOfTask() == task.getTypeOfTask()){
+            BooleanSupplier isSameTask = () -> i.getTypeOfTask() == task.getTypeOfTask();
+
+            if (isSameTask.getAsBoolean()){
                 throw new IllegalArgumentException("Task already exists");
             }
         }

@@ -10,6 +10,8 @@ import com.solvd.laba.computer_repair_service.views.order.ShowOrderView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.ToDoubleBiFunction;
+import java.util.function.ToDoubleFunction;
 
 public class OrderController{
     private int nextOrderId;
@@ -32,16 +34,18 @@ public class OrderController{
         LinkedList<Task> tasks = request.getTasks();
         double total = 0.0;
 
+        ToDoubleFunction<Task> taskCost = (t) -> t.getTypeOfTask().getCost();
+
         for(Task task: tasks){
-            double taskCost = Order.getServiceCost(task.getTypeOfTask());
+            double cost = taskCost.applyAsDouble(task);
 
             OrderItem newItem = new OrderItem(
                     task.getDescription(),
-                    taskCost,
+                    cost,
                     1
             );
 
-            total += taskCost;
+            total += cost;
             items.add(newItem);
         }
 
