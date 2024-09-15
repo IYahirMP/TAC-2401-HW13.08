@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -243,17 +244,19 @@ public class TechnicianController {
     static class CheckEligibleTechnician implements CheckTechnician{
         public boolean test(Technician technician, Computer c) {
             //Retrieves computer features
-            FormFactor computerFormFactor = c.getFormFactor();
-            OperatingSystem computerOperatingSystem = c.getOperatingSystem();
 
-            //Retrieve technician specialty
-            OperatingSystem OSSpecialty = technician.getOperatingSystemSpecialty().getOperatingSystem();
-            FormFactor FFSpecialty = technician.getFormFactorSpecialty().getFormFactor();
+            BiPredicate<Technician, Computer> isSameOS = (tech, comp) -> {
+                return tech.getOperatingSystemSpecialty().getOperatingSystem().
+                        equals(comp.getOperatingSystem());
+            };
 
-            boolean isSameOS = OSSpecialty.equals(computerOperatingSystem);
-            boolean isSameFF = FFSpecialty.equals(computerFormFactor);
-            //If both specialties match computer features, return technician
-            return isSameOS && isSameFF;
+            BiPredicate<Technician, Computer> isSameFF = (tech, comp) -> {
+                return tech.getFormFactorSpecialty().getFormFactor().equals(
+                        comp.getFormFactor()
+                );
+            };
+
+            return isSameOS.test(technician, c) && isSameFF.test(technician, c);
         }
     }
 }
