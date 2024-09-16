@@ -5,12 +5,11 @@ import com.solvd.laba.computer_repair_service.model.accounting.Order;
 import com.solvd.laba.computer_repair_service.model.accounting.OrderItem;
 import com.solvd.laba.computer_repair_service.model.service_management.ServiceRequest;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
+import com.solvd.laba.computer_repair_service.sam.TriConsumer;
 import com.solvd.laba.computer_repair_service.views.order.CreateOrderView;
 import com.solvd.laba.computer_repair_service.views.order.ShowOrderView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.function.ToDoubleBiFunction;
 import java.util.function.ToDoubleFunction;
 
 public class OrderController{
@@ -18,6 +17,21 @@ public class OrderController{
     private HashMap<Integer, Order> orders;
     private CreateOrderView createOrderView;
     private ShowOrderView showOrderView;
+
+    private ToDoubleFunction<Task> taskCost = (t) -> t.getTypeOfTask().getCost();
+
+    TriConsumer<LinkedList<OrderItem>, Task, Double> addItem = (a, b, c) -> {
+        double cost = taskCost.applyAsDouble(b);
+
+        OrderItem newItem = new OrderItem(
+                b.getDescription(),
+                cost,
+                1
+        );
+
+        c += cost;
+        a.add(newItem);
+    };
 
     public OrderController() {
         nextOrderId = 0;
@@ -32,21 +46,10 @@ public class OrderController{
         Order newOrder;
         LinkedList<OrderItem> items = new LinkedList<>();
         LinkedList<Task> tasks = request.getTasks();
+
         double total = 0.0;
-
-        ToDoubleFunction<Task> taskCost = (t) -> t.getTypeOfTask().getCost();
-
         for(Task task: tasks){
-            double cost = taskCost.applyAsDouble(task);
-
-            OrderItem newItem = new OrderItem(
-                    task.getDescription(),
-                    cost,
-                    1
-            );
-
-            total += cost;
-            items.add(newItem);
+            addItem.accept(items, task, total);
         }
 
         newOrder = new Order(

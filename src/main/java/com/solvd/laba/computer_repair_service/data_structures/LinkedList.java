@@ -1,5 +1,6 @@
 package com.solvd.laba.computer_repair_service.data_structures;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -186,6 +187,24 @@ public class LinkedList<T> implements Iterable<T>{
         head = null;
         tail = null;
         size = 0;
+    }
+
+    public ArrayList<T> toArrayList(LinkedList<T> list){
+        ArrayList<T> newList = new ArrayList<>();
+        for(T e: list){
+            newList.add(e);
+        }
+
+        return newList;
+    }
+
+    public ArrayList<T> toArrayList(){
+        ArrayList<T> newList = new ArrayList<>();
+        for(T e: this){
+            newList.add(e);
+        }
+
+        return newList;
     }
 
     @Override
