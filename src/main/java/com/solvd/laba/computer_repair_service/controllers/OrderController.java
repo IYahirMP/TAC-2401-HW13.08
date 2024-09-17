@@ -10,6 +10,7 @@ import com.solvd.laba.computer_repair_service.views.order.CreateOrderView;
 import com.solvd.laba.computer_repair_service.views.order.ShowOrderView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.function.ToDoubleFunction;
 
 public class OrderController{
@@ -47,10 +48,11 @@ public class OrderController{
         LinkedList<OrderItem> items = new LinkedList<>();
         LinkedList<Task> tasks = request.getTasks();
 
+        List<Task> taskList = tasks.toArrayList();
+
         double total = 0.0;
-        for(Task task: tasks){
-            addItem.accept(items, task, total);
-        }
+
+        taskList.forEach((task) -> addItem.accept(items, task, total));
 
         newOrder = new Order(
                 nextOrderId,

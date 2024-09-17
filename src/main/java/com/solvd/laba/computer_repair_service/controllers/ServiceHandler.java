@@ -93,6 +93,10 @@ public class ServiceHandler {
         currentComputer = computerController.create();
         System.out.println("Client's computer has been received");
         System.out.println(currentComputer);
+
+        for(Task t: currentRequest.getTasks()){
+            t.setComputer(currentComputer);
+        }
     }
 
     public boolean agreeService(){

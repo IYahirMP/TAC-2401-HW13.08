@@ -1,7 +1,9 @@
 package com.solvd.laba.computer_repair_service.model.people;
 
+import com.solvd.laba.computer_repair_service.model.computer.Computer;
 import com.solvd.laba.computer_repair_service.model.computer.specialties.FormFactorSpecialty;
 import com.solvd.laba.computer_repair_service.model.computer.specialties.OperatingSystemSpecialty;
+import com.solvd.laba.computer_repair_service.model.service_management.Fault;
 import com.solvd.laba.computer_repair_service.model.service_management.Task;
 import com.solvd.laba.computer_repair_service.model.service_management.TypeOfTask;
 
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * The class Technician represents a technician at the computer repair service.
@@ -101,59 +105,65 @@ public class Technician extends Employee {
         }
 
         Task currentTask = taskQueue.peek();
+        Computer computer = currentTask.getComputer();
+
         switch(currentTask.getTypeOfTask()){
-            case TypeOfTask.DIAGNOSE -> diagnose();
-            case TypeOfTask.FIX_BAD_BATTERY -> fixBattery();
-            case TypeOfTask.FIX_BAD_MOUSE -> fixMouse();
-            case TypeOfTask.FIX_NO_BOOT -> fixBoot();
-            case TypeOfTask.FIX_OVERHEAT -> fixOverHeat();
-            case TypeOfTask.FIX_NO_SCREEN -> fixBadScreen();
-            case TypeOfTask.FIX_BAD_KEYBOARD -> fixKeyboard();
-            case TypeOfTask.FIX_STRANGE_SOUND -> fixStrangeSound();
-            case TypeOfTask.MAINTENANCE -> maintain();
-            case TypeOfTask.REPAIR -> repair();
+            case TypeOfTask.DIAGNOSE -> diagnose(computer);
+            case TypeOfTask.FIX_BAD_BATTERY -> fixBattery(computer);
+            case TypeOfTask.FIX_BAD_MOUSE -> fixMouse(computer);
+            case TypeOfTask.FIX_NO_BOOT -> fixBoot(computer);
+            case TypeOfTask.FIX_OVERHEAT -> fixOverHeat(computer);
+            case TypeOfTask.FIX_NO_SCREEN -> fixBadScreen(computer);
+            case TypeOfTask.FIX_BAD_KEYBOARD -> fixKeyboard(computer);
+            case TypeOfTask.FIX_STRANGE_SOUND -> fixStrangeSound(computer);
+            case TypeOfTask.MAINTENANCE -> maintain(computer);
+            case TypeOfTask.REPAIR -> repair(computer);
         }
 
         taskQueue.poll();
     }
 
-    public void diagnose(){
+    public void diagnose(Computer computer){
+        ArrayList<Fault> faults = new ArrayList<>();
+
+        formFactorSpecialty.diagnose(computer);
+
         System.out.println("Computer has been diagnosed");
     }
 
-    public void fixBattery(){
+    public void fixBattery(Computer computer){
         System.out.println("Computer battery fixed");
     }
 
-    public void fixMouse(){
+    public void fixMouse(Computer computer){
         System.out.println("Computer mouse fixed");
     }
 
-    public void fixBoot(){
+    public void fixBoot(Computer computer){
         System.out.println("Computer boot fixed");
     }
 
-    public void fixOverHeat(){
+    public void fixOverHeat(Computer computer){
         System.out.println("Computer overheat fixed");
     }
 
-    public void fixBadScreen(){
+    public void fixBadScreen(Computer computer){
         System.out.println("Computer bad screen fixed");
     }
 
-    public void fixKeyboard(){
+    public void fixKeyboard(Computer computer){
         System.out.println("Computer keyboard fixed");
     }
 
-    public void fixStrangeSound(){
+    public void fixStrangeSound(Computer computer){
         System.out.println("Computer strange sound fixed");
     }
 
-    public void maintain(){
+    public void maintain(Computer computer){
         System.out.println("Computer maintenance done");
     }
 
-    public void repair(){
+    public void repair(Computer computer){
         System.out.println("Computer repaired");
     }
 

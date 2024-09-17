@@ -6,7 +6,7 @@ import com.solvd.laba.computer_repair_service.model.computer.FormFactor;
 import com.solvd.laba.computer_repair_service.model.computer.OperatingSystem;
 import com.solvd.laba.computer_repair_service.model.computer.hardware.*;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class ComputerController {
     private int nextComputerId;
@@ -118,7 +118,25 @@ public class ComputerController {
     }
 
     private Motherboard createMotherboard(){
-        return new Motherboard(Motherboard.MotherboardFormFactor.ATX);
+        ComputerInterface[] interfaces = {
+                ComputerInterface.createHDMI(),
+                ComputerInterface.createPCIE(),
+                ComputerInterface.createUSB(),
+                ComputerInterface.createUSB(),
+                ComputerInterface.createUSB(),
+                ComputerInterface.createSATA(),
+                ComputerInterface.createSATA(),
+                ComputerInterface.createAudioJack(),
+                ComputerInterface.createGIGABIT_ETHERNET()
+        };
+
+
+        ArrayList<ComputerInterface> iList = new ArrayList<>(Arrays.asList(interfaces));
+        iList.stream()
+                .filter((a) -> (new Random().nextInt(0,2) == 1))
+                .forEach((a) -> a.setBroken(true));
+
+        return new Motherboard(Motherboard.MotherboardFormFactor.ATX, iList);
     }
 
     /** Getters and setters */

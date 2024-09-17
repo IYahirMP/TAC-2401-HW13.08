@@ -2,7 +2,7 @@ package com.solvd.laba.computer_repair_service.model.computer.hardware;
 
 public class ComputerInterface {
     public enum InterfaceType {MALE, FEMALE};
-    public enum InterfaceName {USB, HDMI, DP, DVI, VGA, PCI, PCI_E, SATA, IDE, UNKNOWN};
+    public enum InterfaceName {USB, HDMI, DP, DVI, VGA, PCI, PCI_E, SATA, IDE, UNKNOWN, AUDIO_JACK, GIGABIT_ETHERNET};
 
     private InterfaceName name;
     private InterfaceType type;
@@ -84,6 +84,14 @@ public class ComputerInterface {
 
     public static ComputerInterface createIDE(){
         return new ComputerInterface(InterfaceName.IDE, InterfaceType.FEMALE);
+    }
+
+    public static ComputerInterface createAudioJack(){
+        return new ComputerInterface(InterfaceName.AUDIO_JACK, InterfaceType.FEMALE);
+    }
+
+    public static ComputerInterface createGIGABIT_ETHERNET(){
+        return new ComputerInterface(InterfaceName.GIGABIT_ETHERNET, InterfaceType.FEMALE);
     }
 
     @Override
